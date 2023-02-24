@@ -1,0 +1,39 @@
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	/*border: 1px solid red;*/
+}
+html, body {
+	font-family: 'Nunito Sans', sans-serif;
+	width:100%;
+}
+footer{
+	width: 100vw;
+	height: 55px;
+	padding: 10px auto;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid black;
+}
+footer ul{
+	font-size: .75em;
+	font-family: 'IBM Plex Mono', monospace;;
+	width: 95%;
+	display:flex;
+	justify-content: space-between;
+	color: black;
+}
+footer ul li{
+	display:block;
+}
+footer ul a{
+	text-decoration: none;
+	color:black;
+}
+footer ul a:hover{
+	color: #ccc;
+}
