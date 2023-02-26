@@ -1,20 +1,9 @@
-* {
-	margin:0;
-	padding:0;
-	box-sizing: border-box;
-	scroll-behavior: smooth;
-	/*border: 1px solid red;*/
-}
-html, body {
-	font-family: 'Nunito Sans', sans-serif;
-	width:100%;
-}
 footer{
 	width: 100vw;
-	height: 55px;
 	padding: 10px auto;
 	background-color: white;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	border-top: 1px solid black;
