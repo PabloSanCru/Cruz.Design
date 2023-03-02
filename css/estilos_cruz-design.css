@@ -9,6 +9,11 @@ html, body {
 	font-weight: 400;
 	width:100vw;
 }
+h2{
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight: 400;
+}
+
 /* BARRA DE NAVEGACION */
 nav{
 	width: 100%;
@@ -46,6 +51,8 @@ nav{
 .menu-burger:hover{
 	transform: scaleX(-1);
 }
+
+/* MENU DESPLEGADO */
 .equis div{
 	background-color: white;
 }
@@ -66,7 +73,7 @@ nav{
 	right: 0;
 	height: 45vh;
 	width: calc(10% + 200px);
-	background-color: rgba(102, 222, 195, .8);
+	background-color: rgba(102, 222, 195, .9);
 	display: none;
 }
 .desplegable ul{
@@ -96,44 +103,337 @@ nav{
 	transition: transform .25s;
 	transform-origin: right;
 }
-
 .desplegable ul a:hover::after{
 	transform: scale(1,1)
 }
 
-/* NAVEGADOR GRANDE XL */
-/*nav{
-	background-color: rgba(255, 255, 255, 0);
-	box-shadow: none;
+
+/* SECCION INICIO */
+#inicio{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-nav ul{
-	position: relative;
-	top: 42px;
-	height: 30vh;
-	flex-direction: column;
+#inicio img{
+	min-height: 100vh;
+	width: 100vw;
+	object-fit: cover;
+}
+#inicio div{
+	position:absolute;
+	width: 92vw;
+	display: flex;
 	justify-content: space-between;
-	align-items: flex-end;
 }
-nav ul a{
+#inicio .flecha-carrousel img{
+	width: 25px;
+	height: 25px;
+	object-fit: contain;
+}
+#inicio .flecha-carrousel:nth-child(2){
+	transform: rotate(180deg);
+}
+
+
+/* SECCION "ABOUT US" */
+#about_us{
+	height: calc(100vh - 50px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 0 calc(4vw + 25px);
+}
+#about_us p{
+	font-style: italic;
+	font-size: 1.9em;
+	text-align: center;
+	max-width: 650px;
+}
+.presentacion{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.we-are{
+	font-family: 'Nanum Myeongjo', serif;
+	font-size: 10.5em;
+	text-align: center;
+	line-height: .6em;
+	color: #66DEC3;
+	opacity: .5;
+}
+.agencia{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.agencia h2{
+	font-size: 6.55em;
+	line-height: .8em;
+}
+.agencia h3{
+	font-weight: 300;
+	font-size: 1.9em;
+	letter-spacing: 26px;
+	padding-left: 30px;
+}
+
+
+/* SECCION "SERVICES" */
+#servicios{
+	padding: 0 4vw calc(4vw + 25px);;
+	display: grid;
+	grid-template: 1 / repeat(2, 1fr);
+	gap: 4vw;
+	justify-content: center;
+	align-items: center;
+}
+#servicios img{
+	height: 70vh;
+	width: 100%;
+}
+.listado{
+	padding: 4vw 25px;
+	display: grid;
+	grid-template: repeat(4, auto) / auto 120px;
+	gap: 20px;
+	border-right: 2px solid black;
+}
+.listado-cabecera{
+	grid-column: span 2;
+	text-align: right;
+	height: 80%;
+	margin-bottom: 25px;
+}
+.listado-cabecera div{
+	font-size: 2em;
+}
+.seccion{
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: 3em;
+	font-weight: 400;
+}
+.listado h2{
+	font-size: 1.5em;
+	text-align: right;
 	position: relative;
-	padding:3px;
-	font-size: 1.75em;
-	letter-spacing: 8px;
+	top: -4px;
 }
-nav ul a::after{
-	margin: 0 5px;
-	transform-origin: right;
-}/*
+.listado ul{
+	height: auto;
+	list-style: none;
+}
+
+
+/* SECCION "CONTACT" */
+#contacto{
+	padding: 4vw 4vw 0 4vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#contacto .seccion{
+	text-align: center;
+}
+#contacto h2{
+	font-size: 1.5em;
+	color: #66DEC3;
+	margin: 20px 0 40px 0;
+}
+#contacto h2::after{
+	content:"";
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: #66DEC3;
+}
+.direccion-formulario{
+	display: grid;
+	grid-template: repeat(2, auto) / auto;
+	align-items: end;
+}
+.direccion{
+	padding: 25px;
+	border: 2px solid black;
+}
+.direccion h3{
+	margin-top: 25px;
+	font-size: 18px;
+}
+.direccion p{
+	margin-top: 10px;
+	font-size: .8em;
+}
+.direccion :nth-child(3){
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight: 400;
+}
+ form{
+ 	-webkit-appearance: none;
+	appearance: none;
+	width: 92vw;
+	padding: 25px;
+	background: #66DEC3 url("../img/674-1200x1200-2.jpg") no-repeat center center / cover;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+input, textarea{
+	padding: 10px;
+	font-size: .8em;
+	color: white;
+	background: none;
+	border: 2px solid white;
+	margin-bottom: 25px;
+	color: white;
+}
+input::placeholder, textarea::placeholder{
+	color: white;
+}
+input[type="text"]{
+	width: 100%;
+	height: 45px;
+}
+input[type="submit"]{
+	width: 100px;
+	height: 45px;
+	cursor: pointer;
+}
+input[type="checkbox"]{
+	margin: 0 10px;
+	transform: scale(1.5);
+	cursor: pointer;
+}
+textarea{
+	width: 100%;
+	padding: 10px;
+	font-size: .8em;
+	color: white;
+	background: none;
+	border: 2px solid white;
+	margin-bottom: 25px;
+}
+form p{
+	font-size: .8em;
+	color: white;
+}
+
+
+/* PAG "PROYECTS" */
+.porfolio{
+	padding: 50px 4vw 0 4vw;
+	width: 100vw;
+	display: grid;
+	grid-template: auto / 1fr;
+	gap: 4vw;
+}
+.proyecto{
+	text-decoration: none;
+ 	display: block;
+ 	position: relative;
+ 	width: 100%;
+	height: 70vw;
+	overflow: hidden;
+}
+.foto{
+	display: block;
+	width: 100%;
+}
+.info{
+	display: block;
+	position: absolute;
+	padding: 25px;
+	top: 0;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+}
+.fondo-info-proyecto{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: #66DEC3;
+	mix-blend-mode: multiply;
+	position: absolute;
+	top: 0;
+	opacity: 0;
+}
+.proyecto:hover .foto{
+		filter: grayscale(100%);
+}
+.proyecto:hover .info, .proyecto:hover .fondo-info-proyecto{
+	opacity: 1;
+}
+.titulo-proyecto{
+	font-size: 2em;
+	text-transform: uppercase;
+	color: white;
+}
+.views{
+	display: flex;
+	position: absolute;
+	bottom: 25px;
+}
+.icon-view{
+	width: 20px;
+	margin-right: 5px;
+}
+.cantidad-view{
+	color: white;
+	
+}
+
+/* FLECHA HOVER CON ANIMACIÓN PROYECTOS */
+.acceder{
+	width: 50px;
+	transform: rotate(225deg);
+	position: absolute;
+	right: 20px;
+	bottom: 35px;
+	animation: move-acceder 1.5s linear infinite;
+}
+@keyframes move-acceder{
+	0%{
+		right: 20px;
+		bottom: 35px;
+	}
+	50%{
+		right: 27px;
+		bottom: 44px;
+	}
+	100%{
+		right: 20px;
+		bottom: 35px;
+	}
+}
 
 
 
-
-
-
+/* PAG POLICITA DE PRIVACIDAD */
+.privacidad{
+	min-height: calc(100vh - 50px);
+	padding: 75px calc(4vw + 25px) 0;
+}
+.privacidad h2{
+	font-size: 1.25em;
+	margin-bottom: 15px;
+}
+.privacidad p{
+	font-size: .85em;
+	margin-bottom: 35px;
+}
+.privacidad span{
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight: 700;
+	color: #66DEC3;
+}
 
 
 /* FOOTER */
-
 footer{
 	width: 100vw;
 	background-color: white;
@@ -149,7 +449,6 @@ footer ul{
 	display:flex;
 	flex-wrap: wrap;
 }
-
 footer ul li{
 	flex-grow: 1;
 	list-style: none;
@@ -158,8 +457,7 @@ footer ul li{
 footer ul a{
 	color: black;
 	text-decoration: none;
-	
 }
 footer ul a:hover{
-	color: gray;
+	opacity: .5;
 }
