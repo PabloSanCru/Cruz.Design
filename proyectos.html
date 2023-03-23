@@ -6,7 +6,7 @@
 		<meta name="description" content="estudio y consultoría de diseño que desarrolla proyectos de creación de naming, identidad, packaging, web, dirección de arte, diseño editorial...">
 		<meta name="author" content="Pablo Sánchez Cruz">
 		<title>Proyectos - CRUZ Design</title>
-		<link rel="shortcut icon" href="img/logo/logo_negro.png">
+		<link rel="shortcut icon" href="img/logo/logo_verde.svg">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -23,74 +23,55 @@
 	</head>
 	<body>
 		<header>
-			<nav class="color-nav">
-				<a class="index" href="index.html#inicio"><img src="img/logo/logo_verde.svg"></a>
-				<div class="menu-burger">
-					<div></div>
-					<div></div>
-					<div></div>
+			<nav class="barra-nav">
+				<a class="index" href="index.html#inicio"><img src="img/logo/logo_verde.svg" alt="Logo Index"></a>
+				<div class="menu-S">
+					<div class="burger open">
+						<button>&#10011;</button>
+					</div>
+					<div class="desplegable">
+						<ul>
+							<li><a href="proyectos.html">PROYECTS</a></li>
+							<li><a href="index.html#about_us">ABOUT US</a></li>
+							<li><a href="index.html#servicios">SERVICES</a></li>
+							<li><a href="index.html#contacto">CONTACT</a></li>
+						</ul>
+					</div>
 				</div>
-				<div class="desplegable">
+				<!--
+				<div class="menu-XL">
 					<ul>
-						<li><a href="proyectos.html">PROYECTOS</a></li>
+						<li><a href="proyectos.html">PROYECTS</a></li>
 						<li><a href="index.html#about_us">ABOUT US</a></li>
-						<li><a href="index.html#servicios">SERVICIOS</a></li>
-						<li><a href="index.html#contacto">CONTACTO</a></li>
+						<li><a href="index.html#servicios">SERVICES</a></li>
+						<li><a href="index.html#contacto">CONTACT</a></li>
 					</ul>
 				</div>
+				-->
+				<div class="fondo-nav"></div>
+				<div class="fondo-menu"></div>
 			</nav>
 		</header>
 		
-		<section class="porfolio">
+		<section id="porfolio">
+			<!--
 			<a class="proyecto" href="img/508-1200x1200.jpg" target="_black"> 
 				<img class="foto" src="img/508-1200x1200.jpg" alt="">
-				<div class="fondo-info-proyecto"></div>
+				<div class="filtro-color"></div>
 				<div class="info">
 					<h2 class="titulo-proyecto">Bóvedas de San Lorenzo</h2>
 					<div class="views">
-						<img class="icon-view"src="img/icon-view.svg" alt="">
+						<span class="icon-view">&#9903;</span>
 						<p class="cantidad-view">21</p>
 					</div>
-					<img class="acceder" src="img/flecha.svg">
+					<button class="flecha acceder">&#8600;</button>
 				</div>
-			</a>
-			<a class="proyecto" href="img/508-1200x1200.jpg" target="_black"> 
-				<img class="foto" src="img/508-1200x1200.jpg" alt="">
-				<div class="fondo-info-proyecto"></div>
-				<div class="info">
-					<h2 class="titulo-proyecto">Bóvedas de San Lorenzo</h2>
-					<div class="views">
-						<img class="icon-view"src="img/icon-view.svg" alt="">
-						<p class="cantidad-view">21</p>
-					</div>
-					<img class="acceder" src="img/flecha.svg">
-				</div>
-			</a>
-			<a class="proyecto" href="img/508-1200x1200.jpg" target="_black"> 
-				<img class="foto" src="img/508-1200x1200.jpg" alt="">
-				<div class="fondo-info-proyecto"></div>
-				<div class="info">
-					<h2 class="titulo-proyecto">Bóvedas de San Lorenzo</h2>
-					<div class="views">
-						<img class="icon-view"src="img/icon-view.svg" alt="">
-						<p class="cantidad-view">21</p>
-					</div>
-					<img class="acceder" src="img/flecha.svg">
-				</div>
-			</a>
-			<a class="proyecto" href="img/508-1200x1200.jpg" target="_black"> 
-				<img class="foto" src="img/508-1200x1200.jpg" alt="">
-				<div class="fondo-info-proyecto"></div>
-				<div class="info">
-					<h2 class="titulo-proyecto">Bóvedas de San Lorenzo</h2>
-					<div class="views">
-						<img class="icon-view"src="img/icon-view.svg" alt="">
-						<p class="cantidad-view">21</p>
-					</div>
-					<img class="acceder" src="img/flecha.svg">
-				</div>
-			</a>
+			</a>		
+		-->
 		</section>
+		<div id="zoom">
+			<img src="">
+		</div>
 		
 		<footer>
 			<ul>

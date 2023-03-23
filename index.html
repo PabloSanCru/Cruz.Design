@@ -6,7 +6,7 @@
 		<meta name="description" content="estudio y consultoría de diseño que desarrolla proyectos de creación de naming, identidad, packaging, web, dirección de arte, diseño editorial...">
 		<meta name="author" content="Pablo Sánchez Cruz">
 		<title>CRUZ Design</title>
-		<link rel="shortcut icon" href="img/logo/logo_negro.png">
+		<link rel="shortcut icon" href="img/logo/logo_verde.svg">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -23,14 +23,23 @@
 	</head>
 	<body>
 		<header>
-			<nav class="color-nav">
-				<a class="index" href="index.html#inicio"><img src="img/logo/logo_verde.svg"></a>
-				<div class="menu-burger">
-					<div></div>
-					<div></div>
-					<div></div>
+			<nav class="barra-nav">
+				<a class="index" href="index.html#inicio"><img src="img/logo/logo_blanco.svg" alt="Logo Index"></a>
+				<div class="menu-S">
+					<div class="burger open">
+						<button>&#10011;</button>
+					</div>
+					<div class="desplegable">
+						<ul>
+							<li><a href="proyectos.html">PROYECTS</a></li>
+							<li><a href="index.html#about_us">ABOUT US</a></li>
+							<li><a href="index.html#servicios">SERVICES</a></li>
+							<li><a href="index.html#contacto">CONTACT</a></li>
+						</ul>
+					</div>
 				</div>
-				<div class="desplegable">
+				<!--
+				<div class="menu-XL">
 					<ul>
 						<li><a href="proyectos.html">PROYECTS</a></li>
 						<li><a href="index.html#about_us">ABOUT US</a></li>
@@ -38,14 +47,26 @@
 						<li><a href="index.html#contacto">CONTACT</a></li>
 					</ul>
 				</div>
+				-->
+				<div class="fondo-nav"></div>
+				<div class="fondo-menu"></div>
 			</nav>
 		</header>
 		
 		<section id="inicio">
-			<img src="img/611-1200x1200-2.jpg" alt="">
-			<div>
-				<a class="flecha-carrousel" href="#"><img src="img/flecha.svg"></a>
-				<a class="flecha-carrousel" href="#"><img src="img/flecha.svg"></a>
+			<a href="proyectos.html">
+				<div class="filtro-color"></div>
+				<div class="portada-proyectos"></div>	
+			</a>
+			<div class="flechas">
+				<button id="prev" class="flecha">&larr;</button>
+				<button id="next" class="flecha">&rarr;</button>
+			</div>
+			<div class="bolas">
+				<div class="bola"></div>
+				<div class="bola"></div>
+				<div class="bola"></div>
+				<div class="bola"></div>
 			</div>
 		</section>
 		<section id="about_us">
@@ -59,7 +80,9 @@
 			<p>A design studio vastly experienced in creating websites, editorial design and production, brand identities and digital marketing.</p>
 		</section>
 		<section id="servicios">
-			<img src="img/1047-1200x1200-2.jpg" alt="La oficina">
+			<div class="oficina">
+				<img src="img/1047-1200x1200-2.jpg" alt="La oficina">
+			</div>
 			<div class="listado">
 				<div class="listado-cabecera">
 					<div>Almost</div>
@@ -102,22 +125,28 @@
 					<p>Av. Río Frio, 54 <br> Seville, Spain 41009</p>
 					<p>+34 600 53 23 25</p>
 				</div>
-				<form method="POST" action="">
-					<input type="text" name="Nombre" placeholder="Nombre*">
-					<input type="text" name="Teléfono" placeholder="Teléfono*">
-					<input type="text" name="Email" placeholder="Email*">
-					<textarea name="Mensaje" cols="30" rows="10" placeholder="Mensaje*"></textarea>
-					<input type="submit" name="Enviar" placeholder="ENVIAR">
-					<p><input type="checkbox" name="Política de Privacidad" value="Aceptado">Acepto la política de privacidad.</p>
-				</form>
+				<div id="formulario">
+					<form method="POST" class="rellenable" action="" onsubmit="event.preventDefault()">
+						<input type="text" name="Nombre" placeholder="*Name" required>
+						<input type="text" name="Telefono" placeholder="*Phone" required>
+						<input type="text" name="Email" placeholder="*Email" required>
+						<textarea name="Mensaje" id="Mensaje" cols="30" rows="10" placeholder="*Tell us..." required></textarea>
+						<div><input type="submit" class="enviar" value="SEND"></div>
+						<p><input type="checkbox" name="check" value="Aceptado" required>I accept the Privacy Policy.</p>
+					</form>
+					<div class="gracias">
+						<h2></h2>
+						<h3>We have received your message.<br>We will contact you as soon as possible.<br>Thanks for waiting!</h3>
+					</div>
+				</div>
 			</div>
 		</section>
 		
 		<footer>
 			<ul>
-				<li><a href="privacidad.html">POLÍTICA DE PRIVACIDAD</a></li>
-				<li><a href="privacidad.html">USO DE COOKIES</a></li>
-				<li>Cruz Design © Todos los derechos reservados</li>
+				<li><a href="privacidad.html">PRIVACY POLICY</a></li>
+				<li><a href="privacidad.html">COOKIES</a></li>
+				<li>Cruz Design © All rights reserved</li>
 				<li>
 					<a href="https://www.behance.net/pablosc"><i class="fa-brands fa-behance"></i></a>
 					<a href="https://instagram.com/cruz.design_"><i class="fa-brands fa-instagram"></i></a>

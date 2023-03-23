@@ -1,3 +1,4 @@
+/* ---- ELEMENTOS COMUNES EN LA WEB --- */
 * {
 	margin:0;
 	padding:0;
@@ -9,72 +10,114 @@ html, body {
 	font-weight: 400;
 	width:100vw;
 }
+section{
+	overflow: hidden;
+}
 h2{
 	font-family: 'IBM Plex Mono', monospace;
 	font-weight: 400;
 }
+.filtro-color{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: #66DEC3;
+	mix-blend-mode: multiply;
+	position: absolute;
+	z-index: 1;
+}
+button{
+	-webkit-appearance: none;
+	appearance: none;
+	background: transparent;
+	border: none;
+	color: white;
+	cursor: pointer;
+}
 
-/* BARRA DE NAVEGACION */
+
+/* BARRA DE NAVEGACIÓN */
 nav{
 	width: 100%;
 	height: 50px;
-	padding: 12.5px 4%;
+	padding: 12.5px 4vw;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	position: fixed;
-	z-index: 1
-}
-.color-nav{
-	background-color: rgba(255, 255, 255, 1);
-	box-shadow: 0 0 2px 0 black;
-}
-.index{
-	width: 25px
-}
-.menu-burger{
-	width: 25px;
-	height: 17.5px;
-	transform: scaleX(1);
-	transition: all .5s;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 	z-index: 2;
 }
-.menu-burger div{
-	display: block;
-	height: 3.5px;
+.index{
 	width: 25px;
-	background-color: #66DEC3;
+	transition: all .5s;
+	position: relative;
+	top: 3px;
+	z-index: 3;
 }
-.menu-burger:hover{
-	transform: scaleX(-1);
+.menu-S{
+	position:relative;
+	left: 12.5px;
+	top: 0;
+}
+.burger{
+	position: relative;
+	width: 50px;
+	height: 50px;
+	transition: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 3;
+}
+.burger button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	transition: all .5s;
+
+}
+.burger:hover{
+	transform: rotateY(180deg);
+	transition: all .5s;
+}
+.close button{
+	transform: rotateZ(45deg);
 }
 
-/* MENU DESPLEGADO */
-.equis div{
-	background-color: white;
+/* ELEMENTOS DE ANIMACIÓN DE BARRA */
+.barra-off .fondo-nav{
+	top: -57px;
 }
-.equis div:nth-child(1){
-	transform: rotate(45deg);
-	margin-top: 7px;
+.barra-off .burger button{
+	color: white;
 }
-.equis div:nth-child(2){
-	display:  none;
+.fondo-nav{
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(255, 255, 255, 1);
+	box-shadow: 0 0 2px 0 black;
+	transition: all .5s;
+	z-index: 0;
 }
-.equis div:nth-child(3){
-	transform: rotate(-45deg);
-	margin-bottom: 7px;
-}
+
+/* MENÚ DESPLEGABLE */
 .desplegable{
 	position: fixed;
 	top: 0;
-	right: 0;
-	height: 45vh;
-	width: calc(10% + 200px);
+	right: calc(4vw - 25px);
+	height: 0;
+	width: calc((10% + 200px) - 4vw);
 	background-color: rgba(102, 222, 195, .9);
-	display: none;
+	display: block;
+	transition: all .5s;
+	overflow: hidden;
+	z-index: 1;
 }
 .desplegable ul{
 	display: flex;
@@ -82,8 +125,8 @@ nav{
 	justify-content: space-between;
 	align-items: flex-end;
 	list-style: none;
-	height: 100%;
-	padding: 55px 15% 15% 15%;
+	height: 40vh;
+	padding: 60px 35px 15% 15%;
 }
 .desplegable ul a{
 	font-family: 'IBM Plex Mono', monospace;
@@ -106,9 +149,50 @@ nav{
 .desplegable ul a:hover::after{
 	transform: scale(1,1)
 }
+.fondo-menu{
+	height: 100vh;
+	width: 100vw;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+}
+
+/* FOOTER */
+footer{
+	width: 100vw;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 4%;
+}
+footer ul{
+	font-size: .78em;
+	font-family: 'IBM Plex Mono', monospace;;
+	margin: 0 25px;
+	display:flex;
+	flex-wrap: wrap;
+}
+footer ul li{
+	flex-grow: 1;
+	list-style: none;
+	text-align: center;
+}
+footer ul a{
+	color: black;
+	text-decoration: none;
+}
+footer ul a:hover{
+	opacity: .5;
+}
 
 
-/* SECCION INICIO */
+
+/* --- PAG "INDEX" --- */
+
+/* SECCION "INICIO" */
 #inicio{
 	height: 100vh;
 	width: 100vw;
@@ -116,24 +200,54 @@ nav{
 	justify-content: center;
 	align-items: center;
 }
-#inicio img{
-	min-height: 100vh;
+#inicio a{
+	cursor: crosshair;
+	height: 100vh;
 	width: 100vw;
-	object-fit: cover;
 }
-#inicio div{
+#inicio .portada-proyectos{
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+}
+#inicio .filtro-color{
+	height: 100vh;
+}
+#inicio .flechas{
 	position:absolute;
 	width: 92vw;
 	display: flex;
 	justify-content: space-between;
+	z-index: 1;
 }
-#inicio .flecha-carrousel img{
-	width: 25px;
-	height: 25px;
-	object-fit: contain;
+#inicio button{
+	font-size: 25px;
+	color: rgba(255, 255, 255, .9);
 }
-#inicio .flecha-carrousel:nth-child(2){
-	transform: rotate(180deg);
+#inicio button:hover{
+	color: rgba(255, 255, 255, .6);
+}
+.bolas{
+	width: 200px;
+	height: 10px;
+	position: absolute;
+	bottom: 4vw;
+	display: flex;
+	justify-content: space-between;
+	z-index: 1;
+}
+.bola{
+	width: 40px;
+	height: 5px;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, .6);
+	cursor: pointer;
+}
+.bola:hover{
+	color: rgba(255, 255, 255, .9);
+}
+.bola-activa{
+	background-color: rgba(255, 255, 255, .9);
 }
 
 
@@ -148,9 +262,8 @@ nav{
 }
 #about_us p{
 	font-style: italic;
-	font-size: 1.9em;
+	font-size: 32px;
 	text-align: center;
-	max-width: 650px;
 }
 .presentacion{
 	display: flex;
@@ -159,7 +272,7 @@ nav{
 }
 .we-are{
 	font-family: 'Nanum Myeongjo', serif;
-	font-size: 10.5em;
+	font-size: 166px;
 	text-align: center;
 	line-height: .6em;
 	color: #66DEC3;
@@ -172,12 +285,12 @@ nav{
 	align-items: center;
 }
 .agencia h2{
-	font-size: 6.55em;
-	line-height: .8em;
+	font-size: 105px;
+	line-height: .9em;
 }
 .agencia h3{
 	font-weight: 300;
-	font-size: 1.9em;
+	font-size: 30px;
 	letter-spacing: 26px;
 	padding-left: 30px;
 }
@@ -185,16 +298,21 @@ nav{
 
 /* SECCION "SERVICES" */
 #servicios{
-	padding: 0 4vw calc(4vw + 25px);;
+	padding: 0 4vw calc(4vw + 25px);
 	display: grid;
 	grid-template: 1 / repeat(2, 1fr);
 	gap: 4vw;
 	justify-content: center;
 	align-items: center;
 }
-#servicios img{
+.oficina{
+	width: 92vw;
 	height: 70vh;
+}
+.oficina img{
+	height: 100%;
 	width: 100%;
+	object-fit: cover;
 }
 .listado{
 	padding: 4vw 25px;
@@ -210,15 +328,16 @@ nav{
 	margin-bottom: 25px;
 }
 .listado-cabecera div{
-	font-size: 2em;
+	font-size: 32px;
 }
 .seccion{
 	font-family: 'IBM Plex Mono', monospace;
-	font-size: 3em;
+	font-size: 48px;
 	font-weight: 400;
+	line-height: .8em;
 }
 .listado h2{
-	font-size: 1.5em;
+	font-size: 25px;
 	text-align: right;
 	position: relative;
 	top: -4px;
@@ -234,10 +353,12 @@ nav{
 	padding: 4vw 4vw 0 4vw;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 }
 #contacto .seccion{
 	text-align: center;
+	width: 400px;
 }
 #contacto h2{
 	font-size: 1.5em;
@@ -272,17 +393,21 @@ nav{
 	font-family: 'IBM Plex Mono', monospace;
 	font-weight: 400;
 }
- form{
- 	-webkit-appearance: none;
-	appearance: none;
+#formulario{
+	display: block;
 	width: 92vw;
 	padding: 25px;
+	height: 535px;
 	background: #66DEC3 url("../img/674-1200x1200-2.jpg") no-repeat center center / cover;
+}
+.rellenable{
+	position:absolute;
+	width: calc(92vw - 50px);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-input, textarea{
+.rellenable input, textarea{
 	padding: 10px;
 	font-size: .8em;
 	color: white;
@@ -291,24 +416,30 @@ input, textarea{
 	margin-bottom: 25px;
 	color: white;
 }
-input::placeholder, textarea::placeholder{
+.rellenable input::placeholder, textarea::placeholder{
 	color: white;
 }
-input[type="text"]{
+.rellenable input[type="text"]{
 	width: 100%;
 	height: 45px;
 }
-input[type="submit"]{
-	width: 100px;
-	height: 45px;
+ .rellenable input[type="submit"]{
+ 	width: 100px;
 	cursor: pointer;
 }
-input[type="checkbox"]{
+.rellenable input[type="submit"]:hover{
+	color: rgb(51, 94, 82);
+	background-color: white;
+}
+.rellenable input[type="submit"]:active{
+	box-shadow: inset 0 0 2px gray;
+	border: 2px solid lightgray;
+}
+.rellenable input[type="checkbox"]{
 	margin: 0 10px;
-	transform: scale(1.5);
 	cursor: pointer;
 }
-textarea{
+.rellenable textarea{
 	width: 100%;
 	padding: 10px;
 	font-size: .8em;
@@ -317,15 +448,33 @@ textarea{
 	border: 2px solid white;
 	margin-bottom: 25px;
 }
-form p{
+.rellenable p{
 	font-size: .8em;
+	color: white;
+}
+.gracias{
+	position:absolute;
+	width: calc(92vw - 50px);
+	height: 485px;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+#contacto .gracias h2::after{
+	display: none;
+}
+.gracias h3{
+	padding: 0 10vw;
 	color: white;
 }
 
 
-/* PAG "PROYECTS" */
-.porfolio{
-	padding: 50px 4vw 0 4vw;
+
+/* --- PAG "PROYECTS" --- */
+#porfolio{
+	padding: 50px 4vw 0;
 	width: 100vw;
 	display: grid;
 	grid-template: auto / 1fr;
@@ -338,10 +487,14 @@ form p{
  	width: 100%;
 	height: 70vw;
 	overflow: hidden;
+	object-fit: contain;
+	cursor: crosshair;
 }
 .foto{
 	display: block;
-	width: 100%;
+	width:100%;
+	height:100%;
+	object-fit: cover;
 }
 .info{
 	display: block;
@@ -351,21 +504,16 @@ form p{
 	opacity: 0;
 	width: 100%;
 	height: 100%;
+	z-index: 1;
 }
-.fondo-info-proyecto{
-	display: block;
-	width: 100%;
-	height: 100%;
-	background-color: #66DEC3;
-	mix-blend-mode: multiply;
-	position: absolute;
+.proyecto .filtro-color{
 	top: 0;
 	opacity: 0;
 }
 .proyecto:hover .foto{
-		filter: grayscale(100%);
+	filter: grayscale(100%);
 }
-.proyecto:hover .info, .proyecto:hover .fondo-info-proyecto{
+.proyecto:hover .info, .proyecto:hover .filtro-color{
 	opacity: 1;
 }
 .titulo-proyecto{
@@ -375,89 +523,306 @@ form p{
 }
 .views{
 	display: flex;
+	align-items: center;
 	position: absolute;
 	bottom: 25px;
 }
 .icon-view{
-	width: 20px;
+	color: white;
+	font-size: 20px;
+	font-weight: bolder;
 	margin-right: 5px;
+	position: relative;
+	top: -3px;
 }
 .cantidad-view{
+	text-align: left;
 	color: white;
-	
 }
 
-/* FLECHA HOVER CON ANIMACIÓN PROYECTOS */
+/* ZOOM IMG PROYECTO */
+#zoom{
+	content: "";
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, .8);
+	justify-content: center;
+	align-items: center;
+	padding: 10%;
+	z-index: 1;
+}
+#zoom img{
+	max-width: 100%;
+	max-height: 100%;
+}
+
+/* FLECHA ACCESSO CON ANIMACIÓN */
 .acceder{
+	font-size: 4em;
 	width: 50px;
-	transform: rotate(225deg);
 	position: absolute;
 	right: 20px;
-	bottom: 35px;
+	bottom: 20px;
 	animation: move-acceder 1.5s linear infinite;
 }
 @keyframes move-acceder{
 	0%{
 		right: 20px;
-		bottom: 35px;
+		bottom: 20px;
 	}
 	50%{
-		right: 27px;
-		bottom: 44px;
+		right: 30px;
+		bottom: 30px;
 	}
 	100%{
 		right: 20px;
-		bottom: 35px;
+		bottom: 20px;
 	}
 }
 
 
 
-/* PAG POLICITA DE PRIVACIDAD */
-.privacidad{
-	min-height: calc(100vh - 50px);
-	padding: 75px calc(4vw + 25px) 0;
+/* --- PAG "PRIVACIDAD" --- */
+#privacidad{
+	min-height: calc(100vh - 66.5px);
+	padding: 75px calc(4vw + 25px) 50px;
+	display: flex;
+	justify-content: center;
 }
-.privacidad h2{
+#privacidad div{
+	max-width: 720px;
+}
+#privacidad h2{
 	font-size: 1.25em;
 	margin-bottom: 15px;
 }
-.privacidad p{
+#privacidad p{
 	font-size: .85em;
 	margin-bottom: 35px;
 }
-.privacidad span{
+#privacidad span{
 	font-family: 'IBM Plex Mono', monospace;
 	font-weight: 700;
 	color: #66DEC3;
 }
 
 
-/* FOOTER */
-footer{
-	width: 100vw;
-	background-color: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 4%;
+
+
+
+@media screen and (min-width: 768px){
+	/* FOOTER */
+	footer{
+		padding: 25px 4vW;
+	}
+	footer ul{
+		width: 100%;
+		justify-content:space-between;
+	}
+	footer ul li{
+		flex: none;
+	}
+
+	/* --- PAG "INDEX" --- */
+	/* SECCION "ABOUT US" */
+	#about_us p{
+		font-size: 38px;
+		width: 515px;
+	}
+	.presentacion{
+		width: 445px;
+	}
+	.we-are{
+		font-size: 266px;
+	}
+	.agencia h2{
+		font-size: 169px;
+	}
+	.agencia h3{
+		font-size: 48px;
+		letter-spacing: 43px;
+		padding-left: 50px;
+	}
+
+	/* SECCION "SERVICES" */
+	.listado{
+		margin-right: 25px;
+	}
+	.listado-cabecera div{
+		font-size: 47px;
+	}
+	.seccion{
+		font-size: 70px;
+	}
+	.listado h2{
+		font-size: 28px;
+	}
+	
+	/* SECCION "CONTACT" */
+	#contacto{
+		margin-bottom: 25px;
+	}
+	#contacto .seccion{
+		width: 515px;
+	}
+	#formulario{
+		width: 515px;
+	}
+	.rellenable{
+		width: calc(515px - 50px);
+	}
+	.gracias{
+		width: calc(515px - 50px);
+	}
+	.gracias h3{
+		padding: 0 7vw;
+	}
+
+	/* --- PAG "PROYECTS" --- */
+	#porfolio{
+		grid-template: auto / repeat(2, 1fr);
+	}
+	.proyecto{
+		height: 40vw;
+	}
 }
-footer ul{
-	font-size: .78em;
-	font-family: 'IBM Plex Mono', monospace;;
-	margin: 0 25px;
-	display:flex;
-	flex-wrap: wrap;
+
+@media screen and (min-width: 1200px){
+	/* --- PAG "INDEX" --- */
+	/* SECCION "ABOUT US" */
+	#about_us p{
+		font-size: 38px;
+		width: 895px;
+	}
+	.presentacion{
+		width: 895px;
+	}
+
+	/* SECCION "SERVICES" */
+	#servicios{
+		height: calc(100vh - 50px);
+		grid-template: auto / repeat(2, 1fr);
+	}
+	.oficina{
+		width: 100%;
+		height: 100%;
+	}
+	.listado{
+		height: 100%;
+		margin-right: 25px;
+	}
+	.listado-cabecera div{
+		font-size: 47px;
+	}
+	.seccion{
+		font-size: 70px;
+	}
+	.listado h2{
+		font-size: 32px;
+	}
+
+	/* SECCION "CONTACT" */
+	#contacto{
+		height: calc(100vh - 116.5px);
+	}
+	#contacto .seccion{
+		width: 900px;
+	}
+	.direccion-formulario{
+		grid-template: auto / repeat(2, 30vw);
+	}
+	.direccion{
+		height: 100%;
+		padding-top: 250px;
+	}
+	.direccion h3{
+		font-size: 24px;
+	}
+	.direccion p{
+		font-size: 16px;
+	}
+	#formulario{
+		width: 100%;
+	}
+	.rellenable{
+		width: calc(30vw - 50px);
+	}
+	.gracias{
+		width: calc(30vw - 50px);
+	}
+	.gracias h3{
+		padding: 0 4vw;
+	}
+
+	/* --- PAG "PROYECTS" --- */
+	#porfolio{
+		grid-template: auto / repeat(3, 1fr);
+		gap: 2vw;
+	}
+	.proyecto{
+		height: 20vw;
+	}
 }
-footer ul li{
-	flex-grow: 1;
-	list-style: none;
-	text-align: center;
+
+@media screen and (min-width: 1920px){
+	/* BARRA DE NAVEGACIÓN */
+	nav{
+		padding: 12.5px 2vw;
+	}
+	/* MENÚ DESPLEGABLE */
+	.desplegable{
+		right: calc(2vw - 25px);
+		width: calc((10% + 200px) - 2vw);
+	}
+
+	/* --- PAG "INDEX" --- */
+	/* SECCION "INICIO" */
+	#inicio .flechas{
+		width: 96vw;
+	}
+	.bolas{
+		width: 360px;
+		bottom: 2vw;
+	}
+	.bola{
+		width: 80px;
+	}
+
+	/* SECCION "SERVICES" */
+	#servicios{
+		padding: 2vw;
+	}
+	.listado{
+		padding: 2vw 25px;
+	}
+
+	/* SECCION "CONTACT" */
+	.direccion{
+		padding-top: 365px;
+	}
+	#formulario{
+		padding: 50px 25px;
+		height: 650px;
+	}
+	.rellenable{
+		height: 550px;
+		justify-content: space-between;
+	}
+
+	/* --- PAG "PROYECTS" --- */
+	#porfolio{
+		padding: 50px 2vw 0;
+	}
+
+
+
+
 }
-footer ul a{
-	color: black;
-	text-decoration: none;
-}
-footer ul a:hover{
-	opacity: .5;
-}
+
+
+
+
