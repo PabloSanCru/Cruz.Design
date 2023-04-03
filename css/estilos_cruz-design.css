@@ -10,20 +10,27 @@ html, body {
 	font-weight: 400;
 	width:100vw;
 }
-section{
+main{
+	width: 100%;
+	display: grid;
+	grid-template: repeat(2, 100vh) repeat(2, 100%) / 100vw;
+	gap: 50px;
+}
+section:not(:first-child){
 	overflow: hidden;
+	padding: 25px 4vw;
 }
 h2{
 	font-family: 'IBM Plex Mono', monospace;
 	font-weight: 400;
 }
 .filtro-color{
-	display: block;
 	width: 100%;
 	height: 100%;
 	background-color: #66DEC3;
 	mix-blend-mode: multiply;
 	position: absolute;
+	top: 0;
 	z-index: 1;
 }
 button{
@@ -34,7 +41,10 @@ button{
 	color: white;
 	cursor: pointer;
 }
-
+@font-face {
+  font-family: 'soligant';
+  src: url('../fonts/soligant/soligant.ttf') format('truetype');
+}
 
 /* BARRA DE NAVEGACIÓN */
 nav{
@@ -48,18 +58,18 @@ nav{
 	z-index: 2;
 }
 .index{
-	width: 25px;
+	width: 106px;
 	transition: all .5s;
 	position: relative;
 	top: 3px;
-	z-index: 3;
+	z-index: 1;
 }
-.menu-S{
+#menu{
 	position:relative;
 	left: 12.5px;
 	top: 0;
 }
-.burger{
+.xs #burger{
 	position: relative;
 	width: 50px;
 	height: 50px;
@@ -68,58 +78,68 @@ nav{
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-	z-index: 3;
+	z-index: 2;
 }
-.burger button{
+.xl #burger{
+	display: none;
+}
+#burger button{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 30px;
+	width: 25px;
 	transition: all .5s;
 
 }
-.burger:hover{
+#burger:hover{
 	transform: rotateY(180deg);
 	transition: all .5s;
+}
+.open button{
+	transform: rotateZ(0deg);
 }
 .close button{
 	transform: rotateZ(45deg);
 }
 
 /* ELEMENTOS DE ANIMACIÓN DE BARRA */
-.barra-off .fondo-nav{
+.barra-off #fondo-nav{
 	top: -57px;
 }
-.barra-off .burger button{
+.barra-off #burger button{
 	color: white;
 }
-.fondo-nav{
+#fondo-nav{
 	height: 100%;
 	width: 100%;
-	display: block;
 	position: absolute;
 	left: 0;
 	top: 0;
 	background-color: rgba(255, 255, 255, 1);
 	box-shadow: 0 0 2px 0 black;
 	transition: all .5s;
-	z-index: 0;
+	z-index: -1;
 }
 
 /* MENÚ DESPLEGABLE */
-.desplegable{
+#desplegable{
 	position: fixed;
 	top: 0;
 	right: calc(4vw - 25px);
-	height: 0;
 	width: calc((10% + 200px) - 4vw);
-	background-color: rgba(102, 222, 195, .9);
-	display: block;
 	transition: all .5s;
 	overflow: hidden;
 	z-index: 1;
 }
-.desplegable ul{
+.xs #desplegable{
+	height: 0;
+	background-color: rgba(102, 222, 195, .9);
+}
+.xl #desplegable{
+	height: 40vh;
+	background-color: none;
+}
+#desplegable ul{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -128,35 +148,35 @@ nav{
 	height: 40vh;
 	padding: 60px 35px 15% 15%;
 }
-.desplegable ul a{
+#desplegable ul a{
 	font-family: 'IBM Plex Mono', monospace;
 	font-size: 1.25em;
 	text-decoration: none;
 	letter-spacing: 5px;
 	color: white;
 }
-.desplegable ul a::after{
+#desplegable ul a::after{
 	content:"";
 	display: block;
 	position: relative;
 	width: 100%;
 	height: 2px;
-	background-color: white;
 	transform: scale(0,1);
 	transition: transform .25s;
 	transform-origin: right;
+	background-color: white;
 }
-.desplegable ul a:hover::after{
+#desplegable ul a:hover::after{
 	transform: scale(1,1)
 }
-.fondo-menu{
+#fondo-cierre{
 	height: 100vh;
 	width: 100vw;
 	display: none;
 	position: absolute;
 	left: 0;
 	top: 0;
-	z-index: -1;
+	z-index: 0;
 }
 
 /* FOOTER */
@@ -166,7 +186,8 @@ footer{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 4%;
+	padding: 12.5px 4%;
+	margin: 25px 0 0 0;
 }
 footer ul{
 	font-size: .78em;
@@ -205,29 +226,30 @@ footer ul a:hover{
 	height: 100vh;
 	width: 100vw;
 }
-#inicio .portada-proyectos{
+#inicio #portada-proyectos{
 	height: 100%;
 	background-size: cover;
 	background-position: center;
+	filter: grayscale(100%);;
 }
-#inicio .filtro-color{
-	height: 100vh;
-}
-#inicio .flechas{
+#inicio #flechas{
 	position:absolute;
 	width: 92vw;
 	display: flex;
 	justify-content: space-between;
 	z-index: 1;
 }
-#inicio button{
-	font-size: 25px;
-	color: rgba(255, 255, 255, .9);
+#inicio img{
+	width: 25px;
+	opacity: .9;
 }
-#inicio button:hover{
-	color: rgba(255, 255, 255, .6);
+#inicio img:last-child{
+	transform: rotate(180deg);
 }
-.bolas{
+#inicio img:hover{
+	opacity: .6;
+}
+#bolas{
 	width: 200px;
 	height: 10px;
 	position: absolute;
@@ -236,59 +258,59 @@ footer ul a:hover{
 	justify-content: space-between;
 	z-index: 1;
 }
-.bola{
+#bola{
 	width: 40px;
 	height: 5px;
 	border-radius: 5px;
-	background-color: rgba(255, 255, 255, .6);
 	cursor: pointer;
 }
-.bola:hover{
-	color: rgba(255, 255, 255, .9);
+#bola:hover{
+	border: 1px solid rgba(255, 255, 255, .9);
 }
-.bola-activa{
+.activa{
 	background-color: rgba(255, 255, 255, .9);
+}
+.no-activa{
+	background-color: rgba(255, 255, 255, .6);
 }
 
 
 /* SECCION "ABOUT US" */
 #about_us{
-	height: calc(100vh - 50px);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	padding: 0 calc(4vw + 25px);
 }
 #about_us p{
 	font-style: italic;
 	font-size: 32px;
 	text-align: center;
 }
-.presentacion{
+#presentacion{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-.we-are{
-	font-family: 'Nanum Myeongjo', serif;
+#we-are{
+	font-family: 'soligant';
 	font-size: 166px;
 	text-align: center;
 	line-height: .6em;
 	color: #66DEC3;
 	opacity: .5;
 }
-.agencia{
+#agencia{
 	position: absolute;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.agencia h2{
+#agencia h2{
 	font-size: 105px;
 	line-height: .9em;
 }
-.agencia h3{
+#agencia h3{
 	font-weight: 300;
 	font-size: 30px;
 	letter-spacing: 26px;
@@ -298,36 +320,35 @@ footer ul a:hover{
 
 /* SECCION "SERVICES" */
 #servicios{
-	padding: 0 4vw calc(4vw + 25px);
 	display: grid;
-	grid-template: 1 / repeat(2, 1fr);
-	gap: 4vw;
+	grid-template: repeat(2, 1fr) / 1;
+	gap: 25px;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 }
-.oficina{
+#oficina{
 	width: 92vw;
 	height: 70vh;
 }
-.oficina img{
+#oficina img{
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
 }
-.listado{
+#listado{
 	padding: 4vw 25px;
 	display: grid;
 	grid-template: repeat(4, auto) / auto 120px;
 	gap: 20px;
 	border-right: 2px solid black;
 }
-.listado-cabecera{
+#listado-cabecera{
 	grid-column: span 2;
 	text-align: right;
 	height: 80%;
 	margin-bottom: 25px;
 }
-.listado-cabecera div{
+#listado-cabecera div{
 	font-size: 32px;
 }
 .seccion{
@@ -336,13 +357,13 @@ footer ul a:hover{
 	font-weight: 400;
 	line-height: .8em;
 }
-.listado h2{
+#listado h2{
 	font-size: 25px;
 	text-align: right;
 	position: relative;
 	top: -4px;
 }
-.listado ul{
+#listado ul{
 	height: auto;
 	list-style: none;
 }
@@ -350,10 +371,9 @@ footer ul a:hover{
 
 /* SECCION "CONTACT" */
 #contacto{
-	padding: 4vw 4vw 0 4vw;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 }
 #contacto .seccion{
@@ -365,49 +385,47 @@ footer ul a:hover{
 	color: #66DEC3;
 	margin: 20px 0 40px 0;
 }
-#contacto h2::after{
+#contacto > h2::after{
 	content:"";
 	display: block;
 	width: 100%;
 	height: 2px;
 	background-color: #66DEC3;
 }
-.direccion-formulario{
+#direccion-formulario{
 	display: grid;
-	grid-template: repeat(2, auto) / auto;
+	grid-template: repeat(2, 100%) / 1fr;
 	align-items: end;
 }
-.direccion{
+#direccion{
 	padding: 25px;
 	border: 2px solid black;
 }
-.direccion h3{
+#direccion h3{
 	margin-top: 25px;
 	font-size: 18px;
 }
-.direccion p{
+#direccion p{
 	margin-top: 10px;
 	font-size: .8em;
 }
-.direccion :nth-child(3){
+#direccion :nth-child(3){
 	font-family: 'IBM Plex Mono', monospace;
 	font-weight: 400;
 }
 #formulario{
 	display: block;
-	width: 92vw;
 	padding: 25px;
 	height: 535px;
 	background: #66DEC3 url("../img/674-1200x1200-2.jpg") no-repeat center center / cover;
 }
-.rellenable{
-	position:absolute;
+#rellenable{
 	width: calc(92vw - 50px);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.rellenable input, textarea{
+#rellenable input, textarea{
 	padding: 10px;
 	font-size: .8em;
 	color: white;
@@ -416,43 +434,37 @@ footer ul a:hover{
 	margin-bottom: 25px;
 	color: white;
 }
-.rellenable input::placeholder, textarea::placeholder{
+#rellenable input::placeholder, textarea::placeholder{
 	color: white;
 }
-.rellenable input[type="text"]{
+#rellenable input[type="text"]{
 	width: 100%;
 	height: 45px;
 }
- .rellenable input[type="submit"]{
+#rellenable input[type="submit"]{
  	width: 100px;
 	cursor: pointer;
 }
-.rellenable input[type="submit"]:hover{
+#rellenable input[type="submit"]:hover{
 	color: rgb(51, 94, 82);
 	background-color: white;
 }
-.rellenable input[type="submit"]:active{
+#rellenable input[type="submit"]:active{
 	box-shadow: inset 0 0 2px gray;
 	border: 2px solid lightgray;
 }
-.rellenable input[type="checkbox"]{
+#rellenable input[type="checkbox"]{
 	margin: 0 10px;
 	cursor: pointer;
 }
-.rellenable textarea{
+#rellenable textarea{
 	width: 100%;
-	padding: 10px;
-	font-size: .8em;
-	color: white;
-	background: none;
-	border: 2px solid white;
-	margin-bottom: 25px;
 }
-.rellenable p{
+#rellenable p{
 	font-size: .8em;
 	color: white;
 }
-.gracias{
+#gracias{
 	position:absolute;
 	width: calc(92vw - 50px);
 	height: 485px;
@@ -462,10 +474,7 @@ footer ul a:hover{
 	align-items: center;
 	text-align: center;
 }
-#contacto .gracias h2::after{
-	display: none;
-}
-.gracias h3{
+#gracias h3{
 	padding: 0 10vw;
 	color: white;
 }
@@ -480,7 +489,7 @@ footer ul a:hover{
 	grid-template: auto / 1fr;
 	gap: 4vw;
 }
-.proyecto{
+#proyecto{
 	text-decoration: none;
  	display: block;
  	position: relative;
@@ -490,13 +499,22 @@ footer ul a:hover{
 	object-fit: contain;
 	cursor: crosshair;
 }
-.foto{
+#foto{
 	display: block;
 	width:100%;
 	height:100%;
 	object-fit: cover;
 }
-.info{
+#proyecto .filtro-color{
+	opacity: 0;
+}
+#proyecto:hover #foto{
+	filter: grayscale(100%);
+}
+#proyecto:hover #info, #proyecto:hover .filtro-color{
+	opacity: 1;
+}
+#info{
 	display: block;
 	position: absolute;
 	padding: 25px;
@@ -505,39 +523,56 @@ footer ul a:hover{
 	width: 100%;
 	height: 100%;
 	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
-.proyecto .filtro-color{
-	top: 0;
-	opacity: 0;
-}
-.proyecto:hover .foto{
-	filter: grayscale(100%);
-}
-.proyecto:hover .info, .proyecto:hover .filtro-color{
-	opacity: 1;
-}
-.titulo-proyecto{
+#titulo-proyecto{
 	font-size: 2em;
 	text-transform: uppercase;
 	color: white;
 }
-.views{
+#views{
 	display: flex;
+	flex-direction: row;
 	align-items: center;
-	position: absolute;
-	bottom: 25px;
+	width: 100%;
 }
-.icon-view{
-	color: white;
-	font-size: 20px;
-	font-weight: bolder;
-	margin-right: 5px;
-	position: relative;
-	top: -3px;
+#icon-view{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
 }
-.cantidad-view{
+#lupa{
+	width: 20px;
+	margin-right: 10px;
+}
+#cantidad-view{
+	display: inline-block;
 	text-align: left;
 	color: white;
+}
+
+/* FLECHA ACCESSO CON ANIMACIÓN */
+.acceder{
+	transform: rotate(225deg);
+	width: 75px;
+	position: relative;
+	animation: move-acceder 1.5s linear infinite;
+}
+@keyframes move-acceder{
+	0%{
+		right: -7px;
+		bottom: 13px;
+	}
+	50%{
+		right: 0px;
+		bottom: 20px;
+	}
+	100%{
+		right: -7px;
+		bottom: 13px;
+	}
 }
 
 /* ZOOM IMG PROYECTO */
@@ -558,30 +593,6 @@ footer ul a:hover{
 #zoom img{
 	max-width: 100%;
 	max-height: 100%;
-}
-
-/* FLECHA ACCESSO CON ANIMACIÓN */
-.acceder{
-	font-size: 4em;
-	width: 50px;
-	position: absolute;
-	right: 20px;
-	bottom: 20px;
-	animation: move-acceder 1.5s linear infinite;
-}
-@keyframes move-acceder{
-	0%{
-		right: 20px;
-		bottom: 20px;
-	}
-	50%{
-		right: 30px;
-		bottom: 30px;
-	}
-	100%{
-		right: 20px;
-		bottom: 20px;
-	}
 }
 
 
@@ -633,32 +644,32 @@ footer ul a:hover{
 		font-size: 38px;
 		width: 515px;
 	}
-	.presentacion{
+	#presentacion{
 		width: 445px;
 	}
-	.we-are{
+	#we-are{
 		font-size: 266px;
 	}
-	.agencia h2{
+	#agencia h2{
 		font-size: 169px;
 	}
-	.agencia h3{
+	#agencia h3{
 		font-size: 48px;
 		letter-spacing: 43px;
 		padding-left: 50px;
 	}
 
 	/* SECCION "SERVICES" */
-	.listado{
+	#listado{
 		margin-right: 25px;
 	}
-	.listado-cabecera div{
+	#listado-cabecera div{
 		font-size: 47px;
 	}
 	.seccion{
 		font-size: 70px;
 	}
-	.listado h2{
+	#listado h2{
 		font-size: 28px;
 	}
 	
@@ -672,13 +683,13 @@ footer ul a:hover{
 	#formulario{
 		width: 515px;
 	}
-	.rellenable{
+	#rellenable{
 		width: calc(515px - 50px);
 	}
-	.gracias{
+	#gracias{
 		width: calc(515px - 50px);
 	}
-	.gracias h3{
+	#gracias h3{
 		padding: 0 7vw;
 	}
 
@@ -686,7 +697,7 @@ footer ul a:hover{
 	#porfolio{
 		grid-template: auto / repeat(2, 1fr);
 	}
-	.proyecto{
+	#proyecto{
 		height: 40vw;
 	}
 }
@@ -698,7 +709,7 @@ footer ul a:hover{
 		font-size: 38px;
 		width: 895px;
 	}
-	.presentacion{
+	#presentacion{
 		width: 895px;
 	}
 
@@ -707,21 +718,21 @@ footer ul a:hover{
 		height: calc(100vh - 50px);
 		grid-template: auto / repeat(2, 1fr);
 	}
-	.oficina{
+	#oficina{
 		width: 100%;
 		height: 100%;
 	}
-	.listado{
+	#listado{
 		height: 100%;
 		margin-right: 25px;
 	}
-	.listado-cabecera div{
+	#listado-cabecera div{
 		font-size: 47px;
 	}
 	.seccion{
 		font-size: 70px;
 	}
-	.listado h2{
+	#listado h2{
 		font-size: 32px;
 	}
 
@@ -732,29 +743,29 @@ footer ul a:hover{
 	#contacto .seccion{
 		width: 900px;
 	}
-	.direccion-formulario{
+	#direccion-formulario{
 		grid-template: auto / repeat(2, 30vw);
 	}
-	.direccion{
+	#direccion{
 		height: 100%;
 		padding-top: 250px;
 	}
-	.direccion h3{
+	#direccion h3{
 		font-size: 24px;
 	}
-	.direccion p{
+	#direccion p{
 		font-size: 16px;
 	}
 	#formulario{
 		width: 100%;
 	}
-	.rellenable{
+	#rellenable{
 		width: calc(30vw - 50px);
 	}
-	.gracias{
+	#gracias{
 		width: calc(30vw - 50px);
 	}
-	.gracias h3{
+	#gracias h3{
 		padding: 0 4vw;
 	}
 
@@ -763,7 +774,7 @@ footer ul a:hover{
 		grid-template: auto / repeat(3, 1fr);
 		gap: 2vw;
 	}
-	.proyecto{
+	#proyecto{
 		height: 20vw;
 	}
 }
@@ -774,21 +785,21 @@ footer ul a:hover{
 		padding: 12.5px 2vw;
 	}
 	/* MENÚ DESPLEGABLE */
-	.desplegable{
+	#desplegable{
 		right: calc(2vw - 25px);
 		width: calc((10% + 200px) - 2vw);
 	}
 
 	/* --- PAG "INDEX" --- */
 	/* SECCION "INICIO" */
-	#inicio .flechas{
+	#inicio #flechas{
 		width: 96vw;
 	}
-	.bolas{
+	#bolas{
 		width: 360px;
 		bottom: 2vw;
 	}
-	.bola{
+	#bola{
 		width: 80px;
 	}
 
@@ -796,19 +807,19 @@ footer ul a:hover{
 	#servicios{
 		padding: 2vw;
 	}
-	.listado{
+	#listado{
 		padding: 2vw 25px;
 	}
 
 	/* SECCION "CONTACT" */
-	.direccion{
+	#direccion{
 		padding-top: 365px;
 	}
 	#formulario{
 		padding: 50px 25px;
 		height: 650px;
 	}
-	.rellenable{
+	#rellenable{
 		height: 550px;
 		justify-content: space-between;
 	}

@@ -9,11 +9,7 @@
 		<link rel="shortcut icon" href="img/logo/logo_verde.svg">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-		
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Comforter+Brush&display=swap" rel="stylesheet">
 		<style>
 		</style>
 		<link rel="stylesheet" href="css/estilos_cruz-design.css">
@@ -23,125 +19,115 @@
 	</head>
 	<body>
 		<header>
-			<nav class="barra-nav">
-				<a class="index" href="index.html#inicio"><img src="img/logo/logo_blanco.svg" alt="Logo Index"></a>
-				<div class="menu-S">
-					<div class="burger open">
-						<button>&#10011;</button>
+			<nav>
+				<a class="index" href="index.html#inicio"><img src="img/logo/logo_blanco_2.svg" alt="Logo Index"></a>
+				<div id="menu" class="xs">
+					<div id="burger" class="open">
+						<button><img src="img/menu-blanco.svg" alt="menú"></button>
 					</div>
-					<div class="desplegable">
+					<div id="desplegable">
 						<ul>
-							<li><a href="proyectos.html">PROYECTS</a></li>
+							<li><a href="proyectos.html">PROJECTS</a></li>
 							<li><a href="index.html#about_us">ABOUT US</a></li>
 							<li><a href="index.html#servicios">SERVICES</a></li>
 							<li><a href="index.html#contacto">CONTACT</a></li>
 						</ul>
 					</div>
 				</div>
-				<!--
-				<div class="menu-XL">
-					<ul>
-						<li><a href="proyectos.html">PROYECTS</a></li>
-						<li><a href="index.html#about_us">ABOUT US</a></li>
-						<li><a href="index.html#servicios">SERVICES</a></li>
-						<li><a href="index.html#contacto">CONTACT</a></li>
-					</ul>
-				</div>
-				-->
-				<div class="fondo-nav"></div>
-				<div class="fondo-menu"></div>
+				<div id="fondo-nav"></div>
+				<div id="fondo-cierre"></div>
 			</nav>
 		</header>
-		
-		<section id="inicio">
-			<a href="proyectos.html">
-				<div class="filtro-color"></div>
-				<div class="portada-proyectos"></div>	
-			</a>
-			<div class="flechas">
-				<button id="prev" class="flecha">&larr;</button>
-				<button id="next" class="flecha">&rarr;</button>
-			</div>
-			<div class="bolas">
-				<div class="bola"></div>
-				<div class="bola"></div>
-				<div class="bola"></div>
-				<div class="bola"></div>
-			</div>
-		</section>
-		<section id="about_us">
-			<div class="presentacion">
-				<h1 class="we-are">We are</h1>
-				<div class="agencia">
-					<h2>CRUZ</h2>
-					<h3>DESIGN</h3>
+		<main>
+			<section id="inicio">
+				<a href="proyectos.html">
+					<div class="filtro-color"></div>
+					<div id="portada-proyectos"></div>	
+				</a>
+				<div id="flechas">
+					<img id="flecha" src="img/flecha.svg" alt="imagen anterior">
+					<img id="flecha" src="img/flecha.svg" alt="imagen siguiente">
 				</div>
-			</div>
-			<p>A design studio vastly experienced in creating websites, editorial design and production, brand identities and digital marketing.</p>
-		</section>
-		<section id="servicios">
-			<div class="oficina">
-				<img src="img/1047-1200x1200-2.jpg" alt="La oficina">
-			</div>
-			<div class="listado">
-				<div class="listado-cabecera">
-					<div>Almost</div>
-					<h1 class="seccion"> EVERYTHING</h1>
+				<div id="bolas">
+					<div id="bola" class=""></div>
+					<div id="bola" class=""></div>
+					<div id="bola" class=""></div>
+					<div id="bola" class=""></div>
 				</div>
-				<h2>BRANDING</h2>
-				<ul>
-					<li>Brand Strategy</li>
-					<li>Naming</li>
-					<li>Logo Design</li>
-					<li>Visual Identity</li>
-					<li>Editorial design</li>
-					<li>Packaging</li>
-				</ul>
-				<h2>VISUAL</h2>
-				<ul>
-					<li>Art Direction</li>
-					<li>Photography</li>
-					<li>Social Media</li>
-					<li>Graphic printing</li>
-					<li>Audiovisual</li>
-				</ul>
-				<h2>DIGITAL</h2>
-				<ul>
-					<li>Web Design & Development</li>
-					<li>E-Commerce</li>
-					<li>RRSS</li>
-				</ul>
-			</div>
-		</section>
-		<section id="contacto">
-			<h1  class="seccion">WE ARE HERE TO CREATE</h1>
-			<h2>LET’S WORK TOGETHER!</h2>
-			<div class="direccion-formulario">
-				<div class="direccion">
-					<h3>Have any questions?</h3>
-					<h5>Feel free to say Hi.</h5>
-					<p>info@cruzdesign.com</p>
-					<h3>Head Office / Seville</h3>
-					<p>Av. Río Frio, 54 <br> Seville, Spain 41009</p>
-					<p>+34 600 53 23 25</p>
-				</div>
-				<div id="formulario">
-					<form method="POST" class="rellenable" action="" onsubmit="event.preventDefault()">
-						<input type="text" name="Nombre" placeholder="*Name" required>
-						<input type="text" name="Telefono" placeholder="*Phone" required>
-						<input type="text" name="Email" placeholder="*Email" required>
-						<textarea name="Mensaje" id="Mensaje" cols="30" rows="10" placeholder="*Tell us..." required></textarea>
-						<div><input type="submit" class="enviar" value="SEND"></div>
-						<p><input type="checkbox" name="check" value="Aceptado" required>I accept the Privacy Policy.</p>
-					</form>
-					<div class="gracias">
-						<h2></h2>
-						<h3>We have received your message.<br>We will contact you as soon as possible.<br>Thanks for waiting!</h3>
+			</section>
+			<section id="about_us">
+				<div id="presentacion">
+					<h1 id="we-are">We are</h1>
+					<div id="agencia">
+						<h2>CRUZ</h2>
+						<h3>DESIGN</h3>
 					</div>
 				</div>
-			</div>
-		</section>
-		
+				<p>A design studio vastly experienced in creating websites, editorial design and production, brand identities and digital marketing.</p>
+			</section>
+			<section id="servicios">
+				<div id="oficina">
+					<img src="img/1047-1200x1200-2.jpg" alt="La oficina">
+				</div>
+				<div id="listado">
+					<div id="listado-cabecera">
+						<div>Almost</div>
+						<h1 class="seccion">EVERYTHING</h1>
+					</div>
+					<h2>BRANDING</h2>
+					<ul>
+						<li>Brand Strategy</li>
+						<li>Naming</li>
+						<li>Logo Design</li>
+						<li>Visual Identity</li>
+						<li>Editorial design</li>
+						<li>Packaging</li>
+					</ul>
+					<h2>VISUAL</h2>
+					<ul>
+						<li>Art Direction</li>
+						<li>Photography</li>
+						<li>Social Media</li>
+						<li>Graphic printing</li>
+						<li>Audiovisual</li>
+					</ul>
+					<h2>DIGITAL</h2>
+					<ul>
+						<li>Web Design & Development</li>
+						<li>E-Commerce</li>
+						<li>RRSS</li>
+					</ul>
+				</div>
+			</section>
+			<section id="contacto">
+				<h1  class="seccion">WE ARE HERE TO CREATE</h1>
+				<h2>LET’S WORK TOGETHER!</h2>
+				<div id="direccion-formulario">
+					<div id="direccion">
+						<h3>Have any questions?</h3>
+						<h5>Feel free to say Hi.</h5>
+						<p>info@cruzdesign.com</p>
+						<h3>Head Office / Seville</h3>
+						<p>Av. Río Frio, 54 <br> Seville, Spain 41009</p>
+						<p>+34 600 53 23 25</p>
+					</div>
+					<div id="formulario">
+						<form method="POST" id="rellenable" action="" onsubmit="event.preventDefault()">
+							<input type="text" id="nombre" placeholder="*Name" required>
+							<input type="text" id="telefono" placeholder="*Phone" required>
+							<input type="text" id="email" placeholder="*Email" required>
+							<textarea id="mensaje" cols="30" rows="10" placeholder="*Tell us..." required></textarea>
+							<div><input type="submit" id="enviar" value="SEND"></div>
+							<p><input type="checkbox" id="check" value="Aceptado" required>I accept the Privacy Policy.</p>
+						</form>
+						<div id="gracias">
+							<h2></h2>
+							<h3>We have received your message.<br>We will contact you as soon as possible.<br>Thanks for waiting!</h3>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 		<footer>
 			<ul>
 				<li><a href="privacidad.html">PRIVACY POLICY</a></li>

@@ -1,40 +1,48 @@
 /*  FUNCIONES Y REGISTROS COMUNES DE LA WEB  */
 
-//https://www.mclibre.org/consultar/htmlcss/html/html-unicode-simbolos.html
-
 //--- MENÚ DESPLEGABLE---//
-const menu = document.querySelector(".burger");
-const desplegable = document.querySelector(".desplegable");
-const fondoMenu = document.querySelector(".fondo-menu");
-abierto = true;
+const menu = document.querySelector("#menu");
+const burger = document.querySelector("#burger");
+const desplegable = document.querySelector("#desplegable");
+const fondoMenu = document.querySelector("#fondo-cierre");
+const botonMenu = burger.querySelector("img");
+abierto = false;
+
 
 // Apertura y cierre menú
-menu.addEventListener("click", function(){
-	menu.className = !abierto ? "burger open" : "burger close";
-	desplegable.style.height = !abierto ? "0" : "40vh";
-	fondoMenu.style.display = !abierto ? "none" : "block";
-	if(!abierto){
-		if(index){
-			menu.querySelector("button").style.color = scrollY ? "#66DEC3" : "white";
-		}else{
-			menu.querySelector("button").style.color = "#66DEC3";
-		}
+//Color del menú según el scroll
+function colorScrollMenu(){
+	if(index){
+		botonMenu.src = scrollY ? "img/menu-verde.svg" : "img/menu-blanco.svg";
 	}else{
-		menu.querySelector("button").style.color = "white";
+		botonMenu.src = "img/menu-verde.svg";
+	}
+}
+//Estados del menú
+function menuAbierto(){
+	burger.classList = "close";
+	desplegable.style.height = "40vh";
+	fondoMenu.style.display = "block";
+	botonMenu.src = "img/menu-blanco.svg";
+}
+function menuCerrado(){
+	burger.classList = "open";
+	desplegable.style.height = "0";
+	fondoMenu.style.display = "none";
+	colorScrollMenu();
+}
+//apertura y cierre general del menú
+burger.addEventListener("click", () => {
+	if(abierto){
+		menuCerrado();
+	}else{
+		menuAbierto();
 	}
 	abierto = !abierto;
 });
 // Método 2 cierre menú 
 fondoMenu.addEventListener("mouseover", () => {
-	menu.className = "burger open";
-	if(index){
-			menu.querySelector("button").style.color = scrollY ? "#66DEC3" : "white";
-		}else{
-			menu.querySelector("button").style.color = "#66DEC3";
-		}
-	//menu.querySelector("button").style.color = scrollY ? "#66DEC3" : "white";
-	desplegable.style.height =  "0";
-	fondoMenu.style.display =  "none";
+	menuCerrado();
 	abierto = !abierto;
 });
 
@@ -46,45 +54,87 @@ const privacidad = document.querySelector("#privacidad");
 //--- OBJETOS DE GALERÍA DINÁMICA ---//
 let proyectos = [
 	{nombre: 'Matthew Pillsbury', ruta: 'img/matthew-pillsbury-01.jpg', views: 0},
-	{nombre: 'Matthew Pillsbury', ruta: 'img/matthew-pillsbury-02.jpg', views: 0},
+	{nombre: 'Turismo de Sevilla', ruta: 'img/turismo-01.jpg', views: 0},
+	{nombre: 'Campaña Benetton', ruta: 'img/benetton-01.jpg', views: 0},
 	{nombre: 'Red Monkey', ruta: 'img/red-monkey-01.jpg', views: 0},
+	{nombre: 'Matthew Pillsbury', ruta: 'img/matthew-pillsbury-02.jpg', views: 0},
 	{nombre: 'Red Monkey', ruta: 'img/red-monkey-02.jpg', views: 0},
 	{nombre: 'Retórica Visual', ruta: 'img/retorica-01.jpg', views: 0},
-	{nombre: 'Turismo de Sevilla', ruta: 'img/turismo-01.jpg', views: 0},
 	{nombre: 'Turismo de Sevilla', ruta: 'img/turismo-02.jpg', views: 0},
 	{nombre: 'Vegan Eat', ruta: 'img/vegan-eat-03.jpg', views: 0},
 	{nombre: 'Adopta un Abuelo', ruta: 'img/abuelos-01.jpg', views: 0},
 	{nombre: 'Animales Híbridos', ruta: 'img/animales-01.jpg', views: 0},
-	{nombre: 'Campaña Benetton', ruta: 'img/benetton-01.jpg', views: 0},
 	{nombre: 'Diseño Editorial', ruta: 'img/editorial-01.jpg', views: 0},
 	{nombre: 'Packaging Fanta San Valentín', ruta: 'img/fanta-01.jpg', views: 0},
 	{nombre: 'Conjunto Arqueológico de Itálica', ruta: 'img/italica-01.jpg', views: 0},
 	{nombre: 'Conjunto Arqueológico de Itálica', ruta: 'img/italica-02.jpg', views: 0},
-	]
+	];
+
 
 /*  FUNCIONES DE HTML INDEX  */
 if(index){
-	
+
 	//--- ANIMACIÓN SCROLL MENÚ ---//
-	const barraNav = document.querySelector(".barra-nav");
+	const barraNav = document.querySelector("nav");
 	const logoIndex = document.querySelector(".index img");
+
+	function responsiveMenu(){
+		let ancho = window.innerWidth;
+		if(ancho >= 1200){
+			menu.classList = ("xl");
+		}else{
+			menu.classList =  ("xs");
+		};
+	};
+
+	responsiveMenu();
+
+	function indexScroll(){
+		if (scrollY){
+			barraNav.classList = "";
+			logoIndex.src = "img/logo/logo_verde_2.svg";
+			menu.classList = ("xs");
+			botonMenu.src = abierto ? "img/menu-blanco.svg" : "img/menu-verde.svg";
+		}else{
+			barraNav.classList = "barra-off";
+			logoIndex.src = "img/logo/logo_blanco_2.svg";
+			responsiveMenu();
+			botonMenu.src = "img/menu-blanco.svg";
+		};
+	};
+
 	barraNav.classList.add("barra-off");
 	window.addEventListener("scroll", () => {
+		indexScroll();
+		//botonMenu.src = abierto ? "img/menu-blanco.svg" : "img/menu-verde.svg";
+		
+	});
+
+
+
+	/*
+	barraNav.classList.add("barra-off");
+	window.addEventListener("scroll", () => {
+		barraNav.classList = scrollY ? "" : "barra-off" ;
+		logoIndex.src = scrollY ? "img/logo/logo_verde_2.svg" : "img/logo/logo_blanco_2.svg" ;
 		if (scrollY){
-			barraNav.classList.remove("barra-off");
-			logoIndex.src= "img/logo/logo_verde.svg";
-			menu.querySelector("button").style.color = !abierto ? "white" : "#66DEC3";
+			menu.classList = ("xs");
+			botonMenu.src = abierto ? "img/menu-blanco.svg" : "img/menu-verde.svg";
 		}else{
-			barraNav.classList.add("barra-off");
-			logoIndex.src= "img/logo/logo_blanco.svg";
-			menu.querySelector("button").style.color = "white";
+			responsiveMenu();
+			botonMenu.setAttribute("src", "img/menu-blanco.svg");
 		};
+	});
+	*/
+
+	window.addEventListener("resize", () => {
+		responsiveMenu()
 	});
 
 	//--- CREACIÓN PORTADA DE PROYECTOS con GALERÍA DINÁMICA ---//
-	const botones = document.querySelectorAll(".flecha");
-	var bolas = document.querySelectorAll(".bola");
-	var portadaProyecto = document.querySelector(".portada-proyectos");
+	const botones = document.querySelectorAll("#flecha");
+	var bolas = document.querySelectorAll("#bola");
+	var portadaProyecto = document.querySelector("#portada-proyectos");
 	var imgActual = 0;
 
 	// Función Slider
@@ -95,7 +145,7 @@ if(index){
 	// Función Slider Activo
 	function colorBola(){
 		bolas.forEach((bola,indice) => {
-			indice == imgActual ? bola.classList.add("bola-activa") : bola.classList.remove("bola-activa");
+			indice == imgActual ? bola.classList = "activa" : bola.classList = "no-activa";
 		});
 	};
 	
@@ -125,21 +175,22 @@ if(index){
 		});
 	});
 
+
 	//--- RESPUESTA FORMULARIO ---//
 	// Registro de elementos del formulario
-	const rellenable = document.querySelector(".rellenable");
-	const gracias = document.querySelector(".gracias");
-	const enviar = document.querySelector(".enviar");
-	const nombreContacto = document.querySelector(".gracias h2");
+	const rellenable = document.querySelector("#rellenable");
+	const gracias = document.querySelector("#gracias");
+	const enviar = document.querySelector("#enviar");
+	const nombreContacto = document.querySelector("#gracias h2");
 
 	// Envío de datos
 	enviar.addEventListener("click", () => {
 		// Registro de los inputs en el momento del click
-		let name = document.querySelector('input[name="Nombre"]').value;
-		let phone = document.querySelector('input[name="Telefono"]').value;
-		let email = document.querySelector('input[name="Email"]').value;
-		let text = document.getElementById("Mensaje").value;
-		let check = document.querySelector('input[name="check"]').checked;
+		let name = document.querySelector("#nombre").value;
+		let phone = document.querySelector("#telefono").value;
+		let email = document.querySelector("#email").value;
+		let text = document.querySelector("#mensaje").value;
+		let check = document.querySelector("#check").checked;
 		// Comprobación de los datos y repuesta
 		if(name.trim() && phone.trim() && email.trim() && text.trim() != ""){
 			if(check == 1){
@@ -157,44 +208,48 @@ if(index){
 
 /*  FUNCIONES DE HTML PROYECTOS  */
 if(porfolio){
-	menu.querySelector("button").style.color = "#66DEC3";
 
 	//--- CREACIÓN PROYECTOS con GALERÍA DINÁMICA ---//
 	for(i = 0; i < proyectos.length; i++){
 		
 		// Creación de elementos
-		var proyectoPorfolio = document.createElement("div");
-		proyectoPorfolio.className = "proyecto";
+		const proyectoPorfolio = document.createElement("div");
+		proyectoPorfolio.setAttribute("id", "proyecto");;
 
-		var fotoProyecto = document.createElement("img");
-		fotoProyecto.className = "foto";
+		let fotoProyecto = document.createElement("img");
+		fotoProyecto.setAttribute("id", "foto");
 		fotoProyecto.setAttribute("src", proyectos[i].ruta);
 		fotoProyecto.setAttribute("alt", proyectos[i].nombre);
 
-		var filtroColor = document.createElement("div");
+		const filtroColor = document.createElement("div");
 		filtroColor.className = "filtro-color";
 
-		var infoProyecto = document.createElement("div");
-		infoProyecto.className = "info";
+		const infoProyecto = document.createElement("div");
+		infoProyecto.setAttribute("id", "info");
 
-		var tituloProyecto = document.createElement("h2");
-		tituloProyecto.className = "titulo-proyecto";
+		let tituloProyecto = document.createElement("h2");
+		tituloProyecto.setAttribute("id", "titulo-proyecto");
 		tituloProyecto.innerHTML = proyectos[i].nombre;
 
-		var viewsProyecto = document.createElement("div");
-		viewsProyecto.className = "views";
+		const viewsProyecto = document.createElement("div");
+		viewsProyecto.setAttribute("id", "views");
 
-		var iconView = document.createElement("span");
-		iconView.className = "icon-view";
-		iconView.innerHTML = "&#8981;"
+		const iconView = document.createElement("div");
+		viewsProyecto.setAttribute("id", "icon-view");
+
+		const lupa = document.createElement("img");
+		lupa.setAttribute("id", "lupa");
+		lupa.setAttribute("src", "img/icon-view.svg");
+		lupa.setAttribute("alt", "icono de views");
 
 		let counterView = document.createElement("p");
-		counterView.className = "cantidad-view";
+		counterView.setAttribute("id", "cantidad-view");
 		counterView.innerHTML = proyectos[i].views;
 
-		var flechaProyecto = document.createElement("button");
-		flechaProyecto.classList = "flecha acceder";
-		flechaProyecto.innerHTML = "&#8600;"
+		const flechaProyecto = document.createElement("img");
+		flechaProyecto.classList = "acceder";
+		flechaProyecto.setAttribute("src", "img/flecha.svg");
+		flechaProyecto.setAttribute("alt", "abrir imagen");
 
 		// Registro de elementos en el HTML
 		porfolio.appendChild(proyectoPorfolio);
@@ -202,31 +257,80 @@ if(porfolio){
 		proyectoPorfolio.appendChild(filtroColor);
 		proyectoPorfolio.appendChild(infoProyecto);
 		infoProyecto.appendChild(tituloProyecto);
-		infoProyecto.appendChild(flechaProyecto);
 		infoProyecto.appendChild(viewsProyecto);
 		viewsProyecto.appendChild(iconView);
-		viewsProyecto.appendChild(counterView);
+		iconView.appendChild(lupa);
+		iconView.appendChild(counterView);
+		viewsProyecto.appendChild(flechaProyecto);
 	};
 
 	//--- VISUALIZACIÓN DE PROYECTOS ---//
 	const zoom = document.querySelector("#zoom");
 	const imgZoom = document.querySelector("#zoom img")
-	const proyectoPorfolioZoom = document.querySelectorAll(".proyecto");
-	const contadorView = document.querySelectorAll(".cantidad-view");
+	const proyectoPorfolioZoom = document.querySelectorAll("#proyecto");
+	const contadorView = document.querySelectorAll("#cantidad-view");
+
+/*
+	// Apertura del proyecto
+	if(localStorage){
+		proyectoPorfolioZoom.forEach((proyecto,indice) => {
+			proyecto.addEventListener("click", () => {
+				// Contador de la visualización
+				proyectos[indice].views++;
+				contadorView[indice].innerHTML = proyecto[indice].views;
+				localStorage.setItem("visitas", JSON.stringify(views));
+				// Apertura del proyecto
+				zoom.style.display = "flex";
+				imgZoom.setAttribute("src", proyectos[indice].ruta);
+			});
+		});
+	}else{
+		proyectoPorfolioZoom.forEach((proyecto,indice) => {
+			let visiones = JSON.parse(localStorage.getItem("visitas"));
+			contadorView[indice].innerHTML = visiones[indice].views;
+			proyecto.addEventListener("click", () => {
+				// Contador de la visualización
+				visiones[indice].views++;
+				contadorView[indice].innerHTML = visiones[indice].views;
+				localStorage.setItem("visitas", JSON.stringify(views));
+				// Apertura del proyecto
+				zoom.style.display = "flex";
+				imgZoom.setAttribute("src", visiones[indice].ruta);
+			});
+		});
+	};*/
+	
+	
 
 	// Apertura del proyecto
 	proyectoPorfolioZoom.forEach((proyecto,indice) => {
-		proyecto.addEventListener("click", () => {
-			// Contador de la visualización
-			proyectos[indice].views++;
-			console.log(proyectos[indice].views);
-			contadorView[indice].innerHTML = proyectos[indice].views;
-			localStorage.setItem("views", proyectos[indice].views);
-			proyectos[indice].views = localStorage.views;
-			// Apertura del proyecto
-			zoom.style.display = "flex";
-			imgZoom.setAttribute("src", proyectos[indice].ruta);
-		});
+		let views = JSON.parse(localStorage.getItem("views"));
+		console.log(views);
+		if(views != null){
+			proyecto.addEventListener("click", () => {
+				// Contador de la visualización
+				views[indice].views++;
+				contadorView[indice].innerHTML = views[indice].views;
+				console.log(views);
+				localStorage.setItem("views", JSON.stringify(views));
+				// Apertura del proyecto
+				zoom.style.display = "flex";
+				imgZoom.setAttribute("src", views[indice].ruta);
+			});
+		}else{
+			proyecto.addEventListener("click", () => {
+				// Contador de la visualización
+				proyectos[indice].views++;
+				contadorView[indice].innerHTML = proyecto[indice].views;
+				console.log(proyecto);
+				localStorage.setItem("views", JSON.stringify(proyectos));
+				// Apertura del proyecto
+				zoom.style.display = "flex";
+				imgZoom.setAttribute("src", proyectos[indice].ruta);
+			});
+		}
+		//contadorView[indice].innerHTML = views[indice].views;
+		
 	});
 
 	// Cierre del proyecto
@@ -237,13 +341,6 @@ if(porfolio){
 		evento.stopPropagation();
 	});
 };
-
-
-/*  FUNCIONES DE HTML PRIVACIDAD  */
-if(privacidad){
-	menu.querySelector("button").style.color = "#66DEC3";
-}
-
 
 
 
