@@ -75,7 +75,7 @@ let proyectos = [
 if(index){
 
 	//--- ANIMACIÓN SCROLL MENÚ ---//
-	const barraNav = document.querySelector("nav");
+	const barraNav = document.querySelector("#navegador");
 	const logoIndex = document.querySelector(".index img");
 
 	function responsiveMenu(){
@@ -89,30 +89,6 @@ if(index){
 
 	responsiveMenu();
 
-	function indexScroll(){
-		if (scrollY){
-			barraNav.classList = "";
-			logoIndex.src = "img/logo/logo_verde_2.svg";
-			menu.classList = ("xs");
-			botonMenu.src = abierto ? "img/menu-blanco.svg" : "img/menu-verde.svg";
-		}else{
-			barraNav.classList = "barra-off";
-			logoIndex.src = "img/logo/logo_blanco_2.svg";
-			responsiveMenu();
-			botonMenu.src = "img/menu-blanco.svg";
-		};
-	};
-
-	barraNav.classList.add("barra-off");
-	window.addEventListener("scroll", () => {
-		indexScroll();
-		//botonMenu.src = abierto ? "img/menu-blanco.svg" : "img/menu-verde.svg";
-		
-	});
-
-
-
-	/*
 	barraNav.classList.add("barra-off");
 	window.addEventListener("scroll", () => {
 		barraNav.classList = scrollY ? "" : "barra-off" ;
@@ -125,7 +101,6 @@ if(index){
 			botonMenu.setAttribute("src", "img/menu-blanco.svg");
 		};
 	});
-	*/
 
 	window.addEventListener("resize", () => {
 		responsiveMenu()

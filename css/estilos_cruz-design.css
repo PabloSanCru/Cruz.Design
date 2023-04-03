@@ -38,7 +38,6 @@ button{
 	appearance: none;
 	background: transparent;
 	border: none;
-	color: white;
 	cursor: pointer;
 }
 @font-face {
@@ -89,7 +88,9 @@ nav{
 	align-items: center;
 	width: 25px;
 	transition: all .5s;
-
+}
+#burger button img{
+	width: 25px;
 }
 #burger:hover{
 	transform: rotateY(180deg);
