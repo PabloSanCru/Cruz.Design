@@ -21,7 +21,7 @@ function colorScrollMenu(){
 //Estados del menú
 function menuAbierto(){
 	burger.classList = "close";
-	desplegable.style.height = "40vh";
+	desplegable.style.height = "50vh";
 	fondoMenu.style.display = "block";
 	botonMenu.src = "img/menu-blanco.svg";
 }
@@ -245,67 +245,44 @@ if(porfolio){
 	const proyectoPorfolioZoom = document.querySelectorAll("#proyecto");
 	const contadorView = document.querySelectorAll("#cantidad-view");
 
-/*
-	// Apertura del proyecto
-	if(localStorage){
-		proyectoPorfolioZoom.forEach((proyecto,indice) => {
-			proyecto.addEventListener("click", () => {
-				// Contador de la visualización
-				proyectos[indice].views++;
-				contadorView[indice].innerHTML = proyecto[indice].views;
-				localStorage.setItem("visitas", JSON.stringify(views));
-				// Apertura del proyecto
-				zoom.style.display = "flex";
-				imgZoom.setAttribute("src", proyectos[indice].ruta);
-			});
-		});
-	}else{
-		proyectoPorfolioZoom.forEach((proyecto,indice) => {
-			let visiones = JSON.parse(localStorage.getItem("visitas"));
-			contadorView[indice].innerHTML = visiones[indice].views;
-			proyecto.addEventListener("click", () => {
-				// Contador de la visualización
-				visiones[indice].views++;
-				contadorView[indice].innerHTML = visiones[indice].views;
-				localStorage.setItem("visitas", JSON.stringify(views));
-				// Apertura del proyecto
-				zoom.style.display = "flex";
-				imgZoom.setAttribute("src", visiones[indice].ruta);
-			});
-		});
-	};*/
-	
-	
 
 	// Apertura del proyecto
 	proyectoPorfolioZoom.forEach((proyecto,indice) => {
-		let views = JSON.parse(localStorage.getItem("views"));
-		console.log(views);
-		if(views != null){
-			proyecto.addEventListener("click", () => {
-				// Contador de la visualización
-				views[indice].views++;
-				contadorView[indice].innerHTML = views[indice].views;
-				console.log(views);
-				localStorage.setItem("views", JSON.stringify(views));
-				// Apertura del proyecto
-				zoom.style.display = "flex";
-				imgZoom.setAttribute("src", views[indice].ruta);
-			});
-		}else{
+		let visitas = JSON.parse(localStorage.getItem("views"));
+		if(visitas === null){
+			console.log("hola");
+			console.log(proyectos[indice]);
 			proyecto.addEventListener("click", () => {
 				// Contador de la visualización
 				proyectos[indice].views++;
-				contadorView[indice].innerHTML = proyecto[indice].views;
-				console.log(proyecto);
+				contadorView[indice].innerHTML = proyectos[indice].views;
 				localStorage.setItem("views", JSON.stringify(proyectos));
-				// Apertura del proyecto
+				console.log(localStorage.getItem("views"));
+				console.log(proyectos[indice]);
+				console.log(proyectos[indice].views);
+				// Zoom del proyecto
 				zoom.style.display = "flex";
 				imgZoom.setAttribute("src", proyectos[indice].ruta);
 			});
-		}
-		//contadorView[indice].innerHTML = views[indice].views;
-		
+		}if(visitas != null){
+			console.log("estoy en localStorage");
+			console.log(visitas[indice]);
+			proyectos[indice].views = visitas[indice].views;
+			contadorView[indice].innerHTML = proyectos[indice].views;
+			proyecto.addEventListener("click", () => {
+				// Contador de la visualización
+				proyectos[indice].views++;
+				console.log(proyectos[indice].views);
+				contadorView[indice].innerHTML = proyectos[indice].views;
+				localStorage.setItem("views", JSON.stringify(proyectos));
+				console.log(localStorage.getItem("views"));
+				console.log(proyectos[indice]);
+				console.log(proyectos[indice].views);
+				// Zoom del proyecto
+				zoom.style.display = "flex";
+				imgZoom.setAttribute("src", proyectos[indice].ruta);
+			});
+		};
 	});
 
 	// Cierre del proyecto

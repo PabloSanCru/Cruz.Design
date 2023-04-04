@@ -8,29 +8,27 @@
 html, body {
 	font-family: 'Nunito Sans', sans-serif;
 	font-weight: 400;
-	width:100vw;
+	width: 100vw;
 }
 main{
-	width: 100%;
+	width: 100vw;
 	display: grid;
-	grid-template: repeat(2, 100vh) repeat(2, 100%) / 100vw;
+	grid-template: 100vh repeat(3, auto) / 100vw;
 	gap: 50px;
 }
 section:not(:first-child){
 	overflow: hidden;
 	padding: 25px 4vw;
+	min-height: 100vh;
 }
 h2{
 	font-family: 'IBM Plex Mono', monospace;
 	font-weight: 400;
 }
 .filtro-color{
-	width: 100%;
-	height: 100%;
 	background-color: #66DEC3;
 	mix-blend-mode: multiply;
 	position: absolute;
-	top: 0;
 	z-index: 1;
 }
 button{
@@ -134,10 +132,12 @@ nav{
 }
 .xs #desplegable{
 	height: 0;
+	max-height: 400px;
 	background-color: rgba(102, 222, 195, .9);
 }
 .xl #desplegable{
-	height: 40vh;
+	height: 50vh;
+	max-height: 400px;
 	background-color: none;
 }
 #desplegable ul{
@@ -146,7 +146,8 @@ nav{
 	justify-content: space-between;
 	align-items: flex-end;
 	list-style: none;
-	height: 40vh;
+	height: 50vh;
+	max-height: 400px;
 	padding: 60px 35px 15% 15%;
 }
 #desplegable ul a{
@@ -187,22 +188,25 @@ footer{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 12.5px 4%;
+	padding: 12.5px 4vw;
 	margin: 25px 0 0 0;
+
 }
 footer ul{
+	width: 100%;
 	font-size: .78em;
 	font-family: 'IBM Plex Mono', monospace;;
 	margin: 0 25px;
 	display:flex;
 	flex-wrap: wrap;
+	justify-content:space-between;
 }
 footer ul li{
 	flex-grow: 1;
 	list-style: none;
 	text-align: center;
 }
-footer ul a{
+footer ul a, i{
 	color: black;
 	text-decoration: none;
 }
@@ -231,7 +235,7 @@ footer ul a:hover{
 	height: 100%;
 	background-size: cover;
 	background-position: center;
-	filter: grayscale(100%);;
+	filter: grayscale(100%);
 }
 #inicio #flechas{
 	position:absolute;
@@ -239,6 +243,11 @@ footer ul a:hover{
 	display: flex;
 	justify-content: space-between;
 	z-index: 1;
+}
+#inicio .filtro-color{
+	top: 0;
+	width: 100vw;
+	height: 100vh;
 }
 #inicio img{
 	width: 25px;
@@ -384,7 +393,7 @@ footer ul a:hover{
 #contacto h2{
 	font-size: 1.5em;
 	color: #66DEC3;
-	margin: 20px 0 40px 0;
+	padding: 20px 0 40px 0;
 }
 #contacto > h2::after{
 	content:"";
@@ -395,7 +404,7 @@ footer ul a:hover{
 }
 #direccion-formulario{
 	display: grid;
-	grid-template: repeat(2, 100%) / 1fr;
+	grid-template: repeat(2, auto) / 1fr;
 	align-items: end;
 }
 #direccion{
@@ -417,11 +426,12 @@ footer ul a:hover{
 #formulario{
 	display: block;
 	padding: 25px;
+	width: 92vw;
 	height: 535px;
 	background: #66DEC3 url("../img/674-1200x1200-2.jpg") no-repeat center center / cover;
 }
 #rellenable{
-	width: calc(92vw - 50px);
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -466,8 +476,8 @@ footer ul a:hover{
 	color: white;
 }
 #gracias{
-	position:absolute;
-	width: calc(92vw - 50px);
+	position: relative;
+	width: 100%;
 	height: 485px;
 	display: none;
 	flex-direction: column;
@@ -508,6 +518,9 @@ footer ul a:hover{
 }
 #proyecto .filtro-color{
 	opacity: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
 }
 #proyecto:hover #foto{
 	filter: grayscale(100%);
@@ -631,11 +644,7 @@ footer ul a:hover{
 	footer{
 		padding: 25px 4vW;
 	}
-	footer ul{
-		width: 100%;
-		justify-content:space-between;
-	}
-	footer ul li{
+	-footer ul li{
 		flex: none;
 	}
 
@@ -683,12 +692,6 @@ footer ul a:hover{
 	}
 	#formulario{
 		width: 515px;
-	}
-	#rellenable{
-		width: calc(515px - 50px);
-	}
-	#gracias{
-		width: calc(515px - 50px);
 	}
 	#gracias h3{
 		padding: 0 7vw;
