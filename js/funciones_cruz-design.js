@@ -248,15 +248,17 @@ if(porfolio){
 	// Apertura del zoom del proyecto
 	proyectoPorfolioZoom.forEach((proyecto,indice) => {
 		// Actualizaicón de las views del proyecto
+		proyecto.addEventListener("click", () => {
+			// Zoom del proyecto
+			zoom.style.display = "flex";
+			imgZoom.setAttribute("src", proyectos[indice].ruta);
+		});
 		let visitas = JSON.parse(localStorage.getItem("views"));
 		if(visitas != null){
 			proyectos[indice].views = visitas[indice].views;
 			contadorView[indice].innerHTML = proyectos[indice].views;
 		};
 		proyecto.addEventListener("click", () => {
-			// Zoom del proyecto
-			zoom.style.display = "flex";
-			imgZoom.setAttribute("src", proyectos[indice].ruta);
 			// Contador de la visualización
 			proyectos[indice].views++;
 			contadorView[indice].innerHTML = proyectos[indice].views;

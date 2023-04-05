@@ -743,8 +743,6 @@ footer ul a:hover{
 	}
 
 	/* SECCION "CONTACT" */
-	#contacto{
-		height: calc(100vh - 116.5px);
 	}
 	#contacto .seccion{
 		width: 900px;
