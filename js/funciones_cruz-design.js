@@ -189,7 +189,7 @@ if(porfolio){
 		
 		// Creación de elementos
 		const proyectoPorfolio = document.createElement("div");
-		proyectoPorfolio.setAttribute("id", "proyecto");;
+		proyectoPorfolio.setAttribute("id", "proyecto");
 
 		let fotoProyecto = document.createElement("img");
 		fotoProyecto.setAttribute("id", "foto");
@@ -247,19 +247,19 @@ if(porfolio){
 
 	// Apertura del zoom del proyecto
 	proyectoPorfolioZoom.forEach((proyecto,indice) => {
-		// Actualizaicón de las views del proyecto
+
+		// Zoom del proyecto
 		proyecto.addEventListener("click", () => {
-			// Zoom del proyecto
 			zoom.style.display = "flex";
 			imgZoom.setAttribute("src", proyectos[indice].ruta);
-		});
+		})
+		// Contador de la visualización
 		let visitas = JSON.parse(localStorage.getItem("views"));
 		if(visitas != null){
 			proyectos[indice].views = visitas[indice].views;
 			contadorView[indice].innerHTML = proyectos[indice].views;
 		};
 		proyecto.addEventListener("click", () => {
-			// Contador de la visualización
 			proyectos[indice].views++;
 			contadorView[indice].innerHTML = proyectos[indice].views;
 			localStorage.setItem("views", JSON.stringify(proyectos));
@@ -270,7 +270,7 @@ if(porfolio){
 	zoom.addEventListener("click", () => {
 			zoom.style.display = "none";
 		});
-	imgZoom.addEventListener("click",function(evento){
+	imgZoom.addEventListener("click", (evento) => {
 		evento.stopPropagation();
 	});
 };

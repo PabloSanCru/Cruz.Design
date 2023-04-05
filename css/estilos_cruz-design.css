@@ -612,7 +612,6 @@ footer ul a:hover{
 }
 
 
-
 /* --- PAG "PRIVACIDAD" --- */
 #privacidad{
 	min-height: calc(100vh - 66.5px);
@@ -645,9 +644,6 @@ footer ul a:hover{
 	/* FOOTER */
 	footer{
 		padding: 25px 4vW;
-	}
-	-footer ul li{
-		flex: none;
 	}
 
 	/* --- PAG "INDEX" --- */
