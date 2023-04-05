@@ -253,13 +253,7 @@ if(porfolio){
 			proyectos[indice].views = visitas[indice].views;
 			contadorView[indice].innerHTML = proyectos[indice].views;
 		};
-		// función para respuesta táctil
-		proyecto.addEventListener("touchstart", () => {
-			proyecto.querySelector("#foto").style.filter = "grayscale(100%)";
-			proyecto.querySelector("#info").style.opacity = "1";
-			proyecto.querySelector(".filtro-color").style.opacity = "1";
-		});
-		proyecto.addEventListener("click" || "touchend", () => {
+		proyecto.addEventListener("click", () => {
 			// Zoom del proyecto
 			zoom.style.display = "flex";
 			imgZoom.setAttribute("src", proyectos[indice].ruta);
