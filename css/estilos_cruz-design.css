@@ -431,6 +431,7 @@ footer ul a:hover{
 	background: #66DEC3 url("../img/674-1200x1200-2.jpg") no-repeat center center / cover;
 }
 #rellenable{
+	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -472,6 +473,7 @@ footer ul a:hover{
 	width: 100%;
 }
 #rellenable p{
+	padding: 10px;
 	font-size: .8em;
 	color: white;
 }

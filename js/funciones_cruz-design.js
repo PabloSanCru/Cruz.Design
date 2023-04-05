@@ -245,47 +245,32 @@ if(porfolio){
 	const proyectoPorfolioZoom = document.querySelectorAll("#proyecto");
 	const contadorView = document.querySelectorAll("#cantidad-view");
 
-
-	// Apertura del proyecto
+	// Apertura del zoom del proyecto
 	proyectoPorfolioZoom.forEach((proyecto,indice) => {
+		// Actualizaicón de las views del proyecto
 		let visitas = JSON.parse(localStorage.getItem("views"));
-		if(visitas === null){
-			console.log("hola");
-			console.log(proyectos[indice]);
-			proyecto.addEventListener("click", () => {
-				// Contador de la visualización
-				proyectos[indice].views++;
-				contadorView[indice].innerHTML = proyectos[indice].views;
-				localStorage.setItem("views", JSON.stringify(proyectos));
-				console.log(localStorage.getItem("views"));
-				console.log(proyectos[indice]);
-				console.log(proyectos[indice].views);
-				// Zoom del proyecto
-				zoom.style.display = "flex";
-				imgZoom.setAttribute("src", proyectos[indice].ruta);
-			});
-		}if(visitas != null){
-			console.log("estoy en localStorage");
-			console.log(visitas[indice]);
+		if(visitas != null){
 			proyectos[indice].views = visitas[indice].views;
 			contadorView[indice].innerHTML = proyectos[indice].views;
-			proyecto.addEventListener("click", () => {
-				// Contador de la visualización
-				proyectos[indice].views++;
-				console.log(proyectos[indice].views);
-				contadorView[indice].innerHTML = proyectos[indice].views;
-				localStorage.setItem("views", JSON.stringify(proyectos));
-				console.log(localStorage.getItem("views"));
-				console.log(proyectos[indice]);
-				console.log(proyectos[indice].views);
-				// Zoom del proyecto
-				zoom.style.display = "flex";
-				imgZoom.setAttribute("src", proyectos[indice].ruta);
-			});
 		};
+		// función para respuesta táctil
+		proyecto.addEventListener("touchstart", () => {
+			proyecto.querySelector("#foto").style.filter = "grayscale(100%)";
+			proyecto.querySelector("#info").style.opacity = "1";
+			proyecto.querySelector(".filtro-color").style.opacity = "1";
+		});
+		proyecto.addEventListener("click" || "touchend", () => {
+			// Zoom del proyecto
+			zoom.style.display = "flex";
+			imgZoom.setAttribute("src", proyectos[indice].ruta);
+			// Contador de la visualización
+			proyectos[indice].views++;
+			contadorView[indice].innerHTML = proyectos[indice].views;
+			localStorage.setItem("views", JSON.stringify(proyectos));
+		});
 	});
 
-	// Cierre del proyecto
+	// Cierre del zoom del proyecto
 	zoom.addEventListener("click", () => {
 			zoom.style.display = "none";
 		});
