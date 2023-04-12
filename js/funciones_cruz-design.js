@@ -114,7 +114,8 @@ if(index){
 
 	// Función Slider
 	function renderizarImg(){
-		portadaProyecto.style.backgroundImage = `url(${proyectos[imgActual].ruta})`;
+		portadaProyecto.setAttribute("src", `${proyectos[imgActual].ruta}`);
+		portadaProyecto.setAttribute("alt", `${proyectos[imgActual].nombre}`);
 	};
 
 	// Función Slider Activo

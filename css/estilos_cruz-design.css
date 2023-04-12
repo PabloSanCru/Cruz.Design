@@ -14,11 +14,11 @@ main{
 	width: 100vw;
 	display: grid;
 	grid-template: 100vh repeat(3, auto) / 100vw;
-	gap: 50px;
+	gap: 3.13rem;
 }
 section:not(:first-child){
 	overflow: hidden;
-	padding: 25px 4vw;
+	padding: 1.56rem 4vw;
 	min-height: 100vh;
 }
 h2{
@@ -46,8 +46,8 @@ button{
 /* BARRA DE NAVEGACIÓN */
 nav{
 	width: 100%;
-	height: 50px;
-	padding: 12.5px 4vw;
+	height: 3.13rem;
+	padding: .78rem 4vw;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -55,21 +55,21 @@ nav{
 	z-index: 2;
 }
 .index{
-	width: 106px;
+	width: 6.63rem;
 	transition: all .5s;
 	position: relative;
-	top: 3px;
+	top: .19rem;
 	z-index: 1;
 }
 #menu{
 	position:relative;
-	left: 12.5px;
+	left: .78rem;
 	top: 0;
 }
 .xs #burger{
 	position: relative;
-	width: 50px;
-	height: 50px;
+	width: 3.13rem;
+	height: 3.13rem;
 	transition: none;
 	display: flex;
 	justify-content: center;
@@ -84,11 +84,11 @@ nav{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 25px;
+	width: 1.56rem;
 	transition: all .5s;
 }
 #burger button img{
-	width: 25px;
+	width: 1.56rem;
 }
 #burger:hover{
 	transform: rotateY(180deg);
@@ -103,7 +103,7 @@ nav{
 
 /* ELEMENTOS DE ANIMACIÓN DE BARRA */
 .barra-off #fondo-nav{
-	top: -57px;
+	top: -3.56rem;
 }
 .barra-off #burger button{
 	color: white;
@@ -115,7 +115,7 @@ nav{
 	left: 0;
 	top: 0;
 	background-color: rgba(255, 255, 255, 1);
-	box-shadow: 0 0 2px 0 black;
+	box-shadow: 0 0 .13rem 0 black;
 	transition: all .5s;
 	z-index: -1;
 }
@@ -124,20 +124,20 @@ nav{
 #desplegable{
 	position: fixed;
 	top: 0;
-	right: calc(4vw - 25px);
-	width: calc((10% + 200px) - 4vw);
+	right: calc(4vw - 1.56rem);
+	width: calc((10% + 12.5rem) - 4vw);
 	transition: all .5s;
 	overflow: hidden;
 	z-index: 1;
 }
 .xs #desplegable{
 	height: 0;
-	max-height: 400px;
+	max-height: 25rem;
 	background-color: rgba(102, 222, 195, .9);
 }
 .xl #desplegable{
 	height: 50vh;
-	max-height: 400px;
+	max-height: 25rem;
 	background-color: none;
 }
 #desplegable ul{
@@ -147,14 +147,14 @@ nav{
 	align-items: flex-end;
 	list-style: none;
 	height: 50vh;
-	max-height: 400px;
-	padding: 60px 35px 15% 15%;
+	max-height: 25rem;
+	padding: 60px 2.19rem 15% 15%;
 }
 #desplegable ul a{
 	font-family: 'IBM Plex Mono', monospace;
 	font-size: 1.25em;
 	text-decoration: none;
-	letter-spacing: 5px;
+	letter-spacing: .31rem;
 	color: white;
 }
 #desplegable ul a::after{
@@ -162,7 +162,7 @@ nav{
 	display: block;
 	position: relative;
 	width: 100%;
-	height: 2px;
+	height: .13rem;
 	transform: scale(0,1);
 	transition: transform .25s;
 	transform-origin: right;
@@ -188,15 +188,15 @@ footer{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 12.5px 4vw;
-	margin: 25px 0 0 0;
+	padding: .78rem 4vw;
+	margin: 1.56rem 0 0 0;
 
 }
 footer ul{
 	width: 100%;
 	font-size: .78em;
 	font-family: 'IBM Plex Mono', monospace;;
-	margin: 0 25px;
+	margin: 0 1.56rem;
 	display:flex;
 	flex-wrap: wrap;
 	justify-content:space-between;
@@ -232,9 +232,11 @@ footer ul a:hover{
 	width: 100vw;
 }
 #inicio #portada-proyectos{
+	display: block;
+	width: 100%;
 	height: 100%;
-	background-size: cover;
-	background-position: center;
+	object-fit: cover;
+	object-position: center;
 	filter: grayscale(100%);
 }
 #inicio #flechas{
@@ -249,19 +251,20 @@ footer ul a:hover{
 	width: 100vw;
 	height: 100vh;
 }
-#inicio img{
-	width: 25px;
+#flechas img{
+	padding: .94rem .94rem .94rem 0;
+	width: 2.5rem;
 	opacity: .9;
 }
-#inicio img:last-child{
+#flechas img:last-child{
 	transform: rotate(180deg);
 }
-#inicio img:hover{
+#flechas img:hover{
 	opacity: .6;
 }
 #bolas{
-	width: 200px;
-	height: 10px;
+	width: 12.5rem;
+	height: .63rem;
 	position: absolute;
 	bottom: 4vw;
 	display: flex;
@@ -269,9 +272,9 @@ footer ul a:hover{
 	z-index: 1;
 }
 #bola{
-	width: 40px;
-	height: 5px;
-	border-radius: 5px;
+	width: 2.4rem;
+	height: .31rem;
+	border-radius: .31rem;
 	cursor: pointer;
 }
 #bola:hover{
@@ -294,7 +297,7 @@ footer ul a:hover{
 }
 #about_us p{
 	font-style: italic;
-	font-size: 32px;
+	font-size: 2rem;
 	text-align: center;
 }
 #presentacion{
@@ -304,7 +307,7 @@ footer ul a:hover{
 }
 #we-are{
 	font-family: 'soligant';
-	font-size: 166px;
+	font-size: 10rem;
 	text-align: center;
 	line-height: .6em;
 	color: #66DEC3;
@@ -317,14 +320,14 @@ footer ul a:hover{
 	align-items: center;
 }
 #agencia h2{
-	font-size: 105px;
+	font-size: 6.5rem;
 	line-height: .9em;
 }
 #agencia h3{
 	font-weight: 300;
-	font-size: 30px;
-	letter-spacing: 26px;
-	padding-left: 30px;
+	font-size: 1.9rem;
+	letter-spacing: 1.63rem;
+	padding-left: 1.88rem;
 }
 
 
@@ -332,7 +335,7 @@ footer ul a:hover{
 #servicios{
 	display: grid;
 	grid-template: repeat(2, 1fr) / 1;
-	gap: 25px;
+	gap: 1.56rem;
 	justify-content: center;
 	align-items: flex-start;
 }
@@ -346,32 +349,32 @@ footer ul a:hover{
 	object-fit: cover;
 }
 #listado{
-	padding: 4vw 25px;
+	padding: 4vw 1.56rem;
 	display: grid;
-	grid-template: repeat(4, auto) / auto 120px;
-	gap: 20px;
+	grid-template: repeat(4, auto) / auto 7.5rem;
+	gap: 1.25rem;
 	border-right: 2px solid black;
 }
 #listado-cabecera{
 	grid-column: span 2;
 	text-align: right;
 	height: 80%;
-	margin-bottom: 25px;
+	margin-bottom: 1.56rem;
 }
 #listado-cabecera div{
-	font-size: 32px;
+	font-size: 2rem;
 }
 .seccion{
 	font-family: 'IBM Plex Mono', monospace;
-	font-size: 48px;
+	font-size: 3rem;
 	font-weight: 400;
 	line-height: .8em;
 }
 #listado h2{
-	font-size: 25px;
+	font-size: 1.56rem;
 	text-align: right;
 	position: relative;
-	top: -4px;
+	top: 0.25rem;
 }
 #listado ul{
 	height: auto;
@@ -388,12 +391,12 @@ footer ul a:hover{
 }
 #contacto .seccion{
 	text-align: center;
-	width: 400px;
+	width: 25rem;
 }
 #contacto h2{
 	font-size: 1.5em;
 	color: #66DEC3;
-	padding: 20px 0 40px 0;
+	padding: 1.25rem 0 2.5rem 0;
 }
 #contacto > h2::after{
 	content:"";
@@ -408,15 +411,15 @@ footer ul a:hover{
 	align-items: end;
 }
 #direccion{
-	padding: 25px;
+	padding: 1.56rem;
 	border: 2px solid black;
 }
 #direccion h3{
-	margin-top: 25px;
-	font-size: 18px;
+	margin-top: 1.56rem;
+	font-size: 1.1rem;
 }
 #direccion p{
-	margin-top: 10px;
+	margin-top: .63rem;
 	font-size: .8em;
 }
 #direccion :nth-child(3){
@@ -425,9 +428,9 @@ footer ul a:hover{
 }
 #formulario{
 	display: block;
-	padding: 25px;
+	padding: 1.56rem;
 	width: 92vw;
-	height: 535px;
+	height: 33.44rem;
 	background: #66DEC3 url("../img/674-1200x1200-2.jpg") no-repeat center center / cover;
 }
 #rellenable{
@@ -438,12 +441,12 @@ footer ul a:hover{
 	align-items: center;
 }
 #rellenable input, textarea{
-	padding: 10px;
+	padding: .63rem;
 	font-size: .8em;
 	color: white;
 	background: none;
 	border: 2px solid white;
-	margin-bottom: 25px;
+	margin-bottom: 1.56rem;
 	color: white;
 }
 #rellenable input::placeholder, textarea::placeholder{
@@ -451,10 +454,10 @@ footer ul a:hover{
 }
 #rellenable input[type="text"]{
 	width: 100%;
-	height: 45px;
+	height: 2.81rem;
 }
 #rellenable input[type="submit"]{
- 	width: 100px;
+ 	width: 6.25rem;
 	cursor: pointer;
 }
 #rellenable input[type="submit"]:hover{
@@ -466,21 +469,21 @@ footer ul a:hover{
 	border: 2px solid lightgray;
 }
 #rellenable input[type="checkbox"]{
-	margin: 0 10px;
+	margin: 0 .63rem;
 	cursor: pointer;
 }
 #rellenable textarea{
 	width: 100%;
 }
 #rellenable p{
-	padding: 10px;
+	padding: .63rem;
 	font-size: .8em;
 	color: white;
 }
 #gracias{
 	position: relative;
 	width: 100%;
-	height: 485px;
+	height: 30.31rem;
 	display: none;
 	flex-direction: column;
 	justify-content: center;
@@ -496,7 +499,7 @@ footer ul a:hover{
 
 /* --- PAG "PROYECTS" --- */
 #porfolio{
-	padding: 50px 4vw 0;
+	padding: 3.13rem 4vw 0;
 	width: 100vw;
 	display: grid;
 	grid-template: auto / 1fr;
@@ -533,7 +536,7 @@ footer ul a:hover{
 #info{
 	display: block;
 	position: absolute;
-	padding: 25px;
+	padding: 1.56rem;
 	top: 0;
 	opacity: 0;
 	width: 100%;
@@ -560,8 +563,8 @@ footer ul a:hover{
 	align-items: flex-end;
 }
 #lupa{
-	width: 20px;
-	margin-right: 10px;
+	width: 1.25rem;
+	margin-right: .63rem;
 }
 #cantidad-view{
 	display: inline-block;
@@ -572,22 +575,22 @@ footer ul a:hover{
 /* FLECHA ACCESSO CON ANIMACIÓN */
 .acceder{
 	transform: rotate(225deg);
-	width: 75px;
+	width: 4.69rem;
 	position: relative;
 	animation: move-acceder 1.5s linear infinite;
 }
 @keyframes move-acceder{
 	0%{
-		right: -7px;
-		bottom: 13px;
+		right: -.44rem;
+		bottom: .81rem;
 	}
 	50%{
-		right: 0px;
-		bottom: 20px;
+		right: 0;
+		bottom: 1.25rem;
 	}
 	100%{
-		right: -7px;
-		bottom: 13px;
+		right: -.44rem;
+		bottom: .81rem;
 	}
 }
 
@@ -614,21 +617,21 @@ footer ul a:hover{
 
 /* --- PAG "PRIVACIDAD" --- */
 #privacidad{
-	min-height: calc(100vh - 66.5px);
-	padding: 75px calc(4vw + 25px) 50px;
+	min-height: calc(100vh - 4.16rem);
+	padding: 4.69rem calc(4vw + 1.56rem) 3.13rem;
 	display: flex;
 	justify-content: center;
 }
 #privacidad div{
-	max-width: 720px;
+	max-width: 45rem;
 }
 #privacidad h2{
 	font-size: 1.25em;
-	margin-bottom: 15px;
+	margin-bottom: .94rem;
 }
 #privacidad p{
 	font-size: .85em;
-	margin-bottom: 35px;
+	margin-bottom: 2.19rem;
 }
 #privacidad span{
 	font-family: 'IBM Plex Mono', monospace;
@@ -649,47 +652,47 @@ footer ul a:hover{
 	/* --- PAG "INDEX" --- */
 	/* SECCION "ABOUT US" */
 	#about_us p{
-		font-size: 38px;
-		width: 515px;
+		font-size: 2.4rem;
+		width: 32.19rem;
 	}
 	#presentacion{
-		width: 445px;
+		width: 27.81rem;
 	}
 	#we-are{
-		font-size: 266px;
+		font-size: 16.7rem;
 	}
 	#agencia h2{
-		font-size: 169px;
+		font-size: 10.6rem;
 	}
 	#agencia h3{
-		font-size: 48px;
-		letter-spacing: 43px;
-		padding-left: 50px;
+		font-size: 3rem;
+		letter-spacing: 2.69rem;
+		padding-left: 3.13rem;
 	}
 
 	/* SECCION "SERVICES" */
 	#listado{
-		margin-right: 25px;
+		margin-right: 1.56rem;
 	}
 	#listado-cabecera div{
-		font-size: 47px;
+		font-size: 3rem;
 	}
 	.seccion{
-		font-size: 70px;
+		font-size: 4.4rem;
 	}
 	#listado h2{
-		font-size: 28px;
+		font-size: 1.75rem;
 	}
 	
 	/* SECCION "CONTACT" */
 	#contacto{
-		margin-bottom: 25px;
+		margin-bottom: 1.56rem;
 	}
 	#contacto .seccion{
-		width: 515px;
+		width: 32.19rem;
 	}
 	#formulario{
-		width: 515px;
+		width: 32.19rem;
 	}
 	#gracias h3{
 		padding: 0 7vw;
@@ -708,16 +711,16 @@ footer ul a:hover{
 	/* --- PAG "INDEX" --- */
 	/* SECCION "ABOUT US" */
 	#about_us p{
-		font-size: 38px;
-		width: 895px;
+		font-size: 2.4rem;
+		width: 55.94rem;
 	}
 	#presentacion{
-		width: 895px;
+		width: 55.94rem;
 	}
 
 	/* SECCION "SERVICES" */
 	#servicios{
-		height: calc(100vh - 50px);
+		height: calc(100vh - 3.13rem);
 		grid-template: auto / repeat(2, 1fr);
 	}
 	#oficina{
@@ -726,43 +729,43 @@ footer ul a:hover{
 	}
 	#listado{
 		height: 100%;
-		margin-right: 25px;
+		margin-right: 1.56rem;
 	}
 	#listado-cabecera div{
-		font-size: 47px;
+		font-size: 3rem;
 	}
 	.seccion{
-		font-size: 70px;
+		font-size: 4.4rem;
 	}
 	#listado h2{
-		font-size: 32px;
+		font-size: 2rem;
 	}
 
 	/* SECCION "CONTACT" */
 	#contacto .seccion{
-		width: 900px;
+		width: 56.25rem;
 	}
 	#direccion-formulario{
 		grid-template: auto / repeat(2, 30vw);
 	}
 	#direccion{
 		height: 100%;
-		padding-top: 250px;
+		padding-top: 15.63rem;
 	}
 	#direccion h3{
-		font-size: 24px;
+		font-size: 1.5rem;
 	}
 	#direccion p{
-		font-size: 16px;
+		font-size: 1rem;
 	}
 	#formulario{
 		width: 100%;
 	}
 	#rellenable{
-		width: calc(30vw - 50px);
+		width: calc(30vw - 3.13rem);
 	}
 	#gracias{
-		width: calc(30vw - 50px);
+		width: calc(30vw - 3.13rem);
 	}
 	#gracias h3{
 		padding: 0 4vw;
@@ -781,12 +784,12 @@ footer ul a:hover{
 @media screen and (min-width: 1920px){
 	/* BARRA DE NAVEGACIÓN */
 	nav{
-		padding: 12.5px 2vw;
+		padding: .78rem 2vw;
 	}
 	/* MENÚ DESPLEGABLE */
 	#desplegable{
-		right: calc(2vw - 25px);
-		width: calc((10% + 200px) - 2vw);
+		right: calc(2vw - 1.56rem);
+		width: calc((10% + 12.5rem) - 2vw);
 	}
 
 	/* --- PAG "INDEX" --- */
@@ -795,11 +798,11 @@ footer ul a:hover{
 		width: 96vw;
 	}
 	#bolas{
-		width: 360px;
+		width: 22.5rem;
 		bottom: 2vw;
 	}
 	#bola{
-		width: 80px;
+		width: 5rem;
 	}
 
 	/* SECCION "SERVICES" */
@@ -807,25 +810,25 @@ footer ul a:hover{
 		padding: 2vw;
 	}
 	#listado{
-		padding: 2vw 25px;
+		padding: 2vw 1.56rem;
 	}
 
 	/* SECCION "CONTACT" */
 	#direccion{
-		padding-top: 365px;
+		padding-top: 22.81rem;
 	}
 	#formulario{
-		padding: 50px 25px;
-		height: 650px;
+		padding: 50px 1.56rem;
+		height: 40.63rem;
 	}
 	#rellenable{
-		height: 550px;
+		height: 34.38rem;
 		justify-content: space-between;
 	}
 
 	/* --- PAG "PROYECTS" --- */
 	#porfolio{
-		padding: 50px 2vw 0;
+		padding: 3.13rem 2vw 0;
 	}
 }
 
