@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+	<!-- DATOS Y METADATOS DE LA WEB -->
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,12 +13,14 @@
 		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Comforter+Brush&display=swap" rel="stylesheet">
 		<style>
 		</style>
+		<!-- ESTILOS CSS -->
 		<link rel="stylesheet" href="css/estilos_cruz-design.css">
-		
-
 		<script src="https://kit.fontawesome.com/b7bfff046e.js" crossorigin="anonymous"></script>
 	</head>
+
+	<!-- CUERPO VISUAL DE LA WEB -->
 	<body>
+		<!-- BARRA DE NAVEGACIÓN -->
 		<header>
 			<nav id="navegador">
 				<a class="index" href="index.html#inicio"><img src="img/logo/logo_blanco_2.svg" alt="Logo Index"></a>
@@ -35,15 +38,19 @@
 					</div>
 				</div>
 				<div id="fondo-nav"></div>
+				<!-- RECURSO PARA EL CIERRE DE MENÚ -->
 				<div id="fondo-cierre"></div>
 			</nav>
 		</header>
 		<main>
+
+			<!-- PORTADA -->
 			<section id="inicio">
 				<a href="proyectos.html">
 					<div class="filtro-color"></div>
 					<img id="portada-proyectos" src="" alt=""></img>	
 				</a>
+				<!-- ELEMENTOS PARA EL SLIDE -->
 				<div id="flechas">
 					<img id="flecha" src="img/flecha.svg" alt="imagen anterior">
 					<img id="flecha" src="img/flecha.svg" alt="imagen siguiente">
@@ -55,6 +62,8 @@
 					<div id="bola" class=""></div>
 				</div>
 			</section>
+
+			<!-- ABOUT US -->
 			<section id="about_us">
 				<div id="presentacion">
 					<h1 id="we-are">We are</h1>
@@ -65,10 +74,13 @@
 				</div>
 				<p>A design studio vastly experienced in creating websites, editorial design and production, brand identities and digital marketing.</p>
 			</section>
+
+			<!-- SERVICIOS -->
 			<section id="servicios">
 				<div id="oficina">
 					<img src="img/1047-1200x1200-2.jpg" alt="La oficina">
 				</div>
+				<!-- LISTA DE SERVICIOS -->
 				<div id="listado">
 					<div id="listado-cabecera">
 						<div>Almost</div>
@@ -99,10 +111,13 @@
 					</ul>
 				</div>
 			</section>
+
+			<!-- CONTACTO -->
 			<section id="contacto">
 				<h1  class="seccion">WE ARE HERE TO CREATE</h1>
 				<h2>LET’S WORK TOGETHER!</h2>
 				<div id="direccion-formulario">
+					<!-- INFO -->
 					<div id="direccion">
 						<h3>Have any questions?</h3>
 						<h5>Feel free to say Hi.</h5>
@@ -111,6 +126,7 @@
 						<p>Av. Río Frio, 54 <br> Seville, Spain 41009</p>
 						<p>+34 600 53 23 25</p>
 					</div>
+					<!-- FORMULARIO DE CONTACTO-->
 					<div id="formulario">
 						<form method="POST" id="rellenable" action="" onsubmit="event.preventDefault()">
 							<input type="text" id="nombre" placeholder="*Name" required>
@@ -120,6 +136,7 @@
 							<div><input type="submit" id="enviar" value="SEND"></div>
 							<p><input type="checkbox" id="check" value="Aceptado" required>I accept the Privacy Policy.</p>
 						</form>
+						<!-- RESPUESTA DEL FORMULARIO -->
 						<div id="gracias">
 							<h2></h2>
 							<h3>We have received your message.<br>We will contact you as soon as possible.<br>Thanks for waiting!</h3>
@@ -128,6 +145,8 @@
 				</div>
 			</section>
 		</main>
+
+		<!-- FOOTER DE LA WEB -->
 		<footer>
 			<ul>
 				<li><a href="privacidad.html">PRIVACY POLICY</a></li>
@@ -140,8 +159,7 @@
 			</ul>
 		</footer>
 
-
-
+		<!-- FUNCIONES JAVASCRIPT -->
 		<script type="text/javascript" src="js/funciones_cruz-design.js"></script>
 	</body>
 </html>
